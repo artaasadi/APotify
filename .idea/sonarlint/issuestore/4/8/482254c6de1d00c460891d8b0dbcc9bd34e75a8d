@@ -1,0 +1,15 @@
+
+vsquid:ModifiersOrderCheck
+"EReorder the modifiers to comply with the Java Language Specification.(Âë²Îûÿÿÿÿ8¥ûäí·-
+isquid:CommentedOutCodeLine%"<This block of commented-out lines of code should be removed.(ñåé±8¥ûäí·-
+isquid:S2142w"FEither re-interrupt this method or rethrow the "InterruptedException".(Ñ‘Åüÿÿÿÿ8¥ûäí·-
+?squid:S1170"!Make this final field static too.(ë…ï8•Òí¯·-
+qsquid:S00116"RRename this field "PLAYING" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ë…ï8•Òí¯·-
+©%squid:RedundantThrowsDeclarationChecki"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(Æëºëÿÿÿÿÿ8¸ú·-
+v
+squid:S135j"YReduce the total number of break and continue statements in this loop to use at most one.(€Ø®8¥ûäí·-
+Dsquid:S1170"!Make this final field static too.( —Í¨ÿÿÿÿÿ8¤îí¯·-
+rsquid:S00116"SRename this field "FINISHED" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·éò8¥ûäí·-
+usquid:S00116"QRename this field "PAUSED" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( —Í¨ÿÿÿÿÿ8¤îí¯·-
+?squid:S1170"!Make this final field static too.(·éò8¥ûäí·-
+Fsquid:S11484"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¥ûäí·-

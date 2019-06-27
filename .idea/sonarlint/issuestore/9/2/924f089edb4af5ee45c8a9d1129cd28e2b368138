@@ -1,0 +1,29 @@
+
+[
+squid:S106V"9Replace this use of System.out or System.err by a logger.(âáôÈûÿÿÿÿ8¬ˆÌú·-
+V
+squid:S106"9Replace this use of System.out or System.err by a logger.(¥Â‰ñ8Ï¼áó·-
+[
+squid:S106v"9Replace this use of System.out or System.err by a logger.(”†ìşÿÿÿÿ8ñ“Öÿ·-
+ksquid:S00112„"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ş°ÿ·-
+V
+squid:S106j"9Replace this use of System.out or System.err by a logger.(„€±Ÿ8É­Ñÿ·-
+V
+squid:S106@"9Replace this use of System.out or System.err by a logger.(¥Â‰ñ8¬ˆÌú·-
+[
+squid:S106f"9Replace this use of System.out or System.err by a logger.(ñ«¶Õüÿÿÿÿ8Àú—€¸-
+V
+squid:S1066"9Replace this use of System.out or System.err by a logger.(¥Â‰ñ8¬ˆÌú·-
+hsquid:CommentedOutCodeLinei"<This block of commented-out lines of code should be removed.(«¸°p8Ÿ…Ø€¸-
+V
+squid:S106k"9Replace this use of System.out or System.err by a logger.(·áè8ï©Óÿ·-
+V
+squid:S106l"9Replace this use of System.out or System.err by a logger.(¾Ç¸Í8¨»Ôÿ·-
+isquid:CommentedOutCodeLinew"<This block of commented-out lines of code should be removed.(íšù8ş°ÿ·-
+usquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 46 to the 15 allowed.(†éÑşÿÿÿÿ8ùÒ”î·-
+nsquid:CommentedOutCodeLiney"<This block of commented-out lines of code should be removed.(½Äá¢úÿÿÿÿ8ş°ÿ·-
+[
+squid:S106t"9Replace this use of System.out or System.err by a logger.(ó ¼ºşÿÿÿÿ8ñ“Öÿ·-
+V
+squid:S106u"9Replace this use of System.out or System.err by a logger.(æ«ô8ñ“Öÿ·-
+nsquid:CommentedOutCodeLineb"<This block of commented-out lines of code should be removed.( úÎøúÿÿÿÿ8Ãğ×€¸-

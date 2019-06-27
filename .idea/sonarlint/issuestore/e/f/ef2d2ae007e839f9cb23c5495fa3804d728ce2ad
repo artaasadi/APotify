@@ -1,0 +1,22 @@
+
+Gsquid:S00108œ")Either remove or fill this block of code.(ĞĞ¹óúÿÿÿÿ
+Ÿ%squid:RedundantThrowsDeclarationCheck…"mRemove the declaration of thrown exception 'java.lang.IllegalArgumentException' which is a runtime exception.(ğš£Ë
+¡%squid:RedundantThrowsDeclarationCheckš"jRemove the declaration of thrown exception 'java.lang.NumberFormatException' which is a runtime exception.(åóâ®ûÿÿÿÿ
+Usquid:S1197"8Move the array designator from the variable to the type.(ï€¾ıüÿÿÿÿ
+Gsquid:S00108ì")Either remove or fill this block of code.(ĞĞ¹óúÿÿÿÿ
+‹squid:S1319ã"nThe type of the "toc" object should be an interface such as "List" rather than the implementation "ArrayList".(Ä¬©™ıÿÿÿÿ
+fsquid:S1871Ÿ	"NThis branch's code block is the same as the block for the branch on line 1181.(–¶Ã
+Csquid:S1168æ"+Return an empty collection instead of null.(¥¹ï
+squid:S1319Ê"sThe type of the "chapters" object should be an interface such as "List" rather than the implementation "ArrayList".(°…íÛıÿÿÿÿ
+Osquid:S1135Á"2Complete the task associated to this TODO comment.(ß–Å¼ÿÿÿÿÿ
+Usquid:S1197î"8Move the array designator from the variable to the type.(ï€¾ıüÿÿÿÿ
+jsquid:S3776Ë	"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(ÜÑã
+squid:S1319Ú"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(—ı×˜şÿÿÿÿ
+>squid:S1168†"&Return an empty array instead of null.(¥¹ï
+¡%squid:RedundantThrowsDeclarationCheck"jRemove the declaration of thrown exception 'java.lang.NumberFormatException' which is a runtime exception.(Û ™Éøÿÿÿÿ
+Gsquid:S1066"/Merge this if statement with the enclosing one.(ÍâÃ„
+Csquid:S1168Ã"+Return an empty collection instead of null.(¥¹ï
+hsquid:S1206Ë	"PThis class overrides "equals()" and should therefore also override "hashCode()".(ÜÑã
+Csquid:S1168Ü"+Return an empty collection instead of null.(¥¹ï
+squid:S1319Á"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ô»¼œûÿÿÿÿ
+Csquid:S1168Ò"+Return an empty collection instead of null.(¥¹ï

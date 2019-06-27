@@ -1,0 +1,25 @@
+
+Wsquid:S1161¼":Add the "@Override" annotation above this method signature(–ò—Îùÿÿÿÿ
+Wsquid:S1161Õ":Add the "@Override" annotation above this method signature(ëÔÌÅıÿÿÿÿ
+™squid:S1186´"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(­ƒ”É
+?squid:S1948-"(Make "player" transient or serializable.(¬¼¤·
+squid:S1186á"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(©Çÿšÿÿÿÿÿ
+U
+squid:S106İ"9Replace this use of System.out or System.err by a logger.(°£Ö‹üÿÿÿÿ
+Gsquid:S1148Í"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¢ñ·ß·-
+Rsquid:S1161´":Add the "@Override" annotation above this method signature(­ƒ”É
+U
+squid:S106Ç"9Replace this use of System.out or System.err by a logger.(‘²æñûÿÿÿÿ
+T
+squid:S106q"9Replace this use of System.out or System.err by a logger.(°£Ö‹üÿÿÿÿ
+T
+squid:S106V"9Replace this use of System.out or System.err by a logger.(°£Ö‹üÿÿÿÿ
+P
+squid:S106Ê"9Replace this use of System.out or System.err by a logger.(Ç¡«…
+Wsquid:S1161á":Add the "@Override" annotation above this method signature(©Çÿšÿÿÿÿÿ
+P
+squid:S106ó"9Replace this use of System.out or System.err by a logger.(²…ÛŸ
+Esquid:S19482".Make "playerThread" transient or serializable.(öµ¾›
+osquid:ModifiersOrderCheck("EReorder the modifiers to comply with the Java Language Specification.(ˆĞ«øÿÿÿÿ
+U
+squid:S106É"9Replace this use of System.out or System.err by a logger.(Á‹¥İıÿÿÿÿ

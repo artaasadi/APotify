@@ -1,0 +1,12 @@
+
+isquid:CommentedOutCodeLiney"<This block of commented-out lines of code should be removed.(è·’÷8”àßí·-
+©%squid:RedundantThrowsDeclarationCheckV"qRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from constructor's body.(”ÿ 8Ÿ¨­à·-
+Gsquid:S10680")Remove this unused "frame" private field.(Š¦´½8¦ÙÞ·-
+osquid:CommentedOutCodeLineÚ"<This block of commented-out lines of code should be removed.(“–†ÿÿÿÿÿ8›°Ûì·-
+nsquid:CommentedOutCodeLineY"<This block of commented-out lines of code should be removed.(¾ÓÍöøÿÿÿÿ8Ü…¯ß·-
+psquid:S1450F"RRemove the "ret" field and declare it as a local variable in the relevant methods.(¡Ù¼ß8ûÂîì·-
+hsquid:UselessImportCheck"8Remove this unused import 'java.io.BufferedInputStream'.(Š—€åûÿÿÿÿ8±ý—à·-
+·%squid:RedundantThrowsDeclarationCheck‹"Remove the declaration of thrown exception 'javazoom.jl.decoder.BitstreamException', as it cannot be thrown from method's body.(”¾ô68€è÷Þ·-
+isquid:CommentedOutCodeLineM"<This block of commented-out lines of code should be removed.(ßÎÇ¶8 î®ß·-
+nsquid:CommentedOutCodeLine|"<This block of commented-out lines of code should be removed.(£Ì¦Œûÿÿÿÿ8¾øßí·-
+osquid:CommentedOutCodeLine”"<This block of commented-out lines of code should be removed.(ãÁºÇýÿÿÿÿ8ûÂîì·-

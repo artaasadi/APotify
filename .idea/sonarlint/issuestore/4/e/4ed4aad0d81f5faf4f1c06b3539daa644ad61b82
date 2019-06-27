@@ -1,0 +1,58 @@
+
+Lsquid:EmptyStatementUsageCheck×"Remove this empty statement.(ôŸìúÿÿÿÿ
+Lsquid:EmptyStatementUsageCheckØ"Remove this empty statement.(ôŸìúÿÿÿÿ
+osquid:ModifiersOrderCheck."EReorder the modifiers to comply with the Java Language Specification.(ïòÅÿÿÿÿÿ
+Tsquid:S1197."8Move the array designator from the variable to the type.(ïòÅÿÿÿÿÿ
+tsquid:S3973‚"WUse curly braces or indentation to denote the code conditionally executed by this "if".(¹Èôµùÿÿÿÿ
+bsquid:CommentedOutCodeLineY"<This block of commented-out lines of code should be removed.(¼¡¤Ÿ
+bsquid:CommentedOutCodeLined"<This block of commented-out lines of code should be removed.(åç—
+gsquid:CommentedOutCodeLinem"<This block of commented-out lines of code should be removed.(ô÷†âøÿÿÿÿ
+gsquid:CommentedOutCodeLine~"<This block of commented-out lines of code should be removed.(ô÷†âøÿÿÿÿ
+hsquid:CommentedOutCodeLineˆ"<This block of commented-out lines of code should be removed.(ÃÌÙ£ûÿÿÿÿ
+csquid:CommentedOutCodeLineœ"<This block of commented-out lines of code should be removed.(ì‚°ç
+hsquid:CommentedOutCodeLine¥"<This block of commented-out lines of code should be removed.(àÖ¡ïıÿÿÿÿ
+csquid:CommentedOutCodeLine¨"<This block of commented-out lines of code should be removed.(İæŸ€
+bsquid:CommentedOutCodeLineË"<This block of commented-out lines of code should be removed.(‰Êv
+csquid:CommentedOutCodeLineÔ"<This block of commented-out lines of code should be removed.(¥§‰Ê
+T
+squid:S106D"9Replace this use of System.out or System.err by a logger.(ºÏ°ùÿÿÿÿ
+T
+squid:S106L"9Replace this use of System.out or System.err by a logger.(˜ ™ şÿÿÿÿ
+P
+squid:S106—"9Replace this use of System.out or System.err by a logger.(š§÷¨
+P
+squid:S106š"9Replace this use of System.out or System.err by a logger.(ÌôÓš
+P
+squid:S106¢"9Replace this use of System.out or System.err by a logger.(ˆÂæİ
+U
+squid:S106·"9Replace this use of System.out or System.err by a logger.(¥¡ûüùÿÿÿÿ
+U
+squid:S106È"9Replace this use of System.out or System.err by a logger.(Àœç£ıÿÿÿÿ
+U
+squid:S106É"9Replace this use of System.out or System.err by a logger.(ššúêşÿÿÿÿ
+P
+squid:S106Ê"9Replace this use of System.out or System.err by a logger.(¶Ì×”
+P
+squid:S106Ñ"9Replace this use of System.out or System.err by a logger.(ßª™î
+U
+squid:S106Ò"9Replace this use of System.out or System.err by a logger.(ŞÒ—üÿÿÿÿ
+U
+squid:S106Ó"9Replace this use of System.out or System.err by a logger.(ŸØ¬‹øÿÿÿÿ
+"squid:ClassVariableVisibilityCheck^"SMake which_c a static final constant or non-public and provide accessors if needed.(î´
+Š"squid:ClassVariableVisibilityCheck_"WMake output_mode a static final constant or non-public and provide accessors if needed.(àñä‹ûÿÿÿÿ
+’"squid:ClassVariableVisibilityCheck`"_Make use_own_scalefactor a static final constant or non-public and provide accessors if needed.(ÃŠÜ¯ÿÿÿÿÿ
+Š"squid:ClassVariableVisibilityChecka"WMake scalefactor a static final constant or non-public and provide accessors if needed.(î¡Ğæúÿÿÿÿ
+"squid:ClassVariableVisibilityCheckb"[Make output_filename a static final constant or non-public and provide accessors if needed.(Ãòÿÿÿÿÿ
+‚"squid:ClassVariableVisibilityCheckc"TMake filename a static final constant or non-public and provide accessors if needed.(ƒ °Œ
+†"squid:ClassVariableVisibilityChecke"XMake verbose_mode a static final constant or non-public and provide accessors if needed.(Æ €
+‡"squid:ClassVariableVisibilityCheckf"YMake verbose_level a static final constant or non-public and provide accessors if needed.(¦ñŠÁ
+isquid:S3776v"RRefactor this method to reduce its Cognitive Complexity from 28 to the 15 allowed.(ö¸şª
+jsquid:S00101+"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Ò©øïıÿÿÿÿ
+jsquid:S00101V"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ó¯Âßøÿÿÿÿ
+gsquid:S00100Æ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸¥¿»
+jsquid:S00116^"RRename this field "which_c" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(î´
+ssquid:S00116_"VRename this field "output_mode" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àñä‹ûÿÿÿÿ
+{squid:S00116`"^Rename this field "use_own_scalefactor" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÃŠÜ¯ÿÿÿÿÿ
+wsquid:S00116b"ZRename this field "output_filename" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ãòÿÿÿÿÿ
+osquid:S00116e"WRename this field "verbose_mode" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æ €
+psquid:S00116f"XRename this field "verbose_level" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦ñŠÁ

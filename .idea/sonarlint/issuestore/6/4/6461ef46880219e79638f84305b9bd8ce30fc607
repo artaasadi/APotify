@@ -1,0 +1,21 @@
+
+Zsquid:S2184"@Cast one of the operands of this addition operation to a "long".(ê£Ù…ÿÿÿÿÿ
+]squid:S2184"HCast one of the operands of this multiplication operation to a "double".(˜½Ğš
+{%squid:RedundantThrowsDeclarationCheck"GRemove the redundant '!unknownSymbol!' thrown exception declaration(s).(˜ÇŒûúÿÿÿÿ
+v%squid:RedundantThrowsDeclarationCheck"GRemove the redundant '!unknownSymbol!' thrown exception declaration(s).(­…æ¢
+{%squid:RedundantThrowsDeclarationCheck"GRemove the redundant '!unknownSymbol!' thrown exception declaration(s).(†–¿£ıÿÿÿÿ
+u%squid:RedundantThrowsDeclarationCheck"GRemove the redundant '!unknownSymbol!' thrown exception declaration(s).(¸¹t
+{%squid:RedundantThrowsDeclarationCheck"GRemove the redundant '!unknownSymbol!' thrown exception declaration(s).(Û‰ë¡úÿÿÿÿ
+{%squid:RedundantThrowsDeclarationCheck"GRemove the redundant '!unknownSymbol!' thrown exception declaration(s).(ÀóïÓıÿÿÿÿ
+psquid:S1192"VDefine a constant instead of duplicating this literal "Not enough bytes read" 3 times.(˜õ¤·úÿÿÿÿ
+osquid:S1192"ZDefine a constant instead of duplicating this literal "Inconsistent frame header" 3 times.(€Ô¤ï
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ô±¨¢
+r
+squid:S135"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿ
+`squid:HiddenFieldCheck"@Rename "bufferLength" which hides the field declared at line 16.(ºï¨¾
+esquid:HiddenFieldCheck"@Rename "bufferLength" which hides the field declared at line 16.(™»åÕúÿÿÿÿ
+Osquid:S1141"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+lsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 33 to the 15 allowed.(¤äš úÿÿÿÿ
+gsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(ÿ°·¤
+^squid:S2147"DCombine this catch with the one at line 86, which has the same body.(öĞ¾ìıÿÿÿÿ
+;squid:S2129"!Remove this "Integer" constructor(¹‰ˆÚıÿÿÿÿ

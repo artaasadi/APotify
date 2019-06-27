@@ -1,0 +1,7 @@
+
+squid:S1319!"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(Œ´¸Õøÿÿÿÿ8Ğ®Èò·-
+Gsquid:S1068")Remove this unused "songs" private field.(´øòŠ8ÿÈ¸ó·-
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(’„›Üùÿÿÿÿ8Ï”Àò·-
+“squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ıÄ¬şÿÿÿÿ8—Ë¿ò·-
+‹squid:S1319"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(ôïô¸8œÇúó·-
+squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(˜Ú¯Î8Íğô·-

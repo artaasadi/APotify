@@ -1,0 +1,42 @@
+
+osquid:S3973‹"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ê©Ω‹
+hsquid:CommentedOutCodeLine¿"<This block of commented-out lines of code should be removed.(¡õ®»ˇˇˇˇˇ
+hsquid:CommentedOutCodeLineÉ"<This block of commented-out lines of code should be removed.(“Ã‚ñ¯ˇˇˇˇ
+Dsquid:S1125V"(Remove the literal "true" boolean value.(≤õöº¸ˇˇˇˇ
+Ñ"squid:ClassVariableVisibilityCheck%"VMake wFormatTag a static final constant or non-public and provide accessors if needed.(ìâç∑
+Ç"squid:ClassVariableVisibilityCheck&"UMake nChannels a static final constant or non-public and provide accessors if needed.(Å”›9
+à"squid:ClassVariableVisibilityCheck'"ZMake nSamplesPerSec a static final constant or non-public and provide accessors if needed.(ˆÌÙ¸
+â"squid:ClassVariableVisibilityCheck("[Make nAvgBytesPerSec a static final constant or non-public and provide accessors if needed.(ëá—Ò
+Ñ"squid:ClassVariableVisibilityCheck)"WMake nBlockAlign a static final constant or non-public and provide accessors if needed.(∞ßÎ-
+à"squid:ClassVariableVisibilityCheck*"ZMake nBitsPerSample a static final constant or non-public and provide accessors if needed.(ı—®Í
+Ä"squid:ClassVariableVisibilityCheck?"RMake header a static final constant or non-public and provide accessors if needed.(Ÿáë•
+~"squid:ClassVariableVisibilityCheck@"PMake data a static final constant or non-public and provide accessors if needed.(ôΩ˙Ü
+É"squid:ClassVariableVisibilityCheck]"PMake chan a static final constant or non-public and provide accessors if needed.(ûä¶¬˝ˇˇˇˇ
+§squid:S2681ﬁ"ÜThis line will not be executed conditionally; only the first line of this 2-line block will be. The rest will execute unconditionally.(ˇÂ…ﬂ˝ˇˇˇˇ
+esquid:S00101#"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(‰ÅÁ◊
+esquid:S00101="MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Ø¿÷˜
+fsquid:S001002"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚åÓΩ
+ksquid:S00100J"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹ç»¨¸ˇˇˇˇ
+lsquid:S00100£"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÊΩå˚˚ˇˇˇˇ
+lsquid:S00100¡"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿ±èÜ¯ˇˇˇˇ
+lsquid:S00100‚"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Å§Ì”¸ˇˇˇˇ
+gsquid:S00100Â"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(≈…∞ä
+lsquid:S00100Ë"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(äÓ¿‰˙ˇˇˇˇ
+gsquid:S00100Î"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çë÷§
+lsquid:S00100Ú"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰ø…€¸ˇˇˇˇ
+Esquid:S1185˝"(Remove this method to simply inherit it.(Ùè˛¥˚ˇˇˇˇ
+nsquid:S00116c"VRename this field "wave_format" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˚◊â›
+psquid:S00116d"SRename this field "pcm_data" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ⁄ƒ–˛ˇˇˇˇ
+wsquid:S00116e"ZRename this field "pcm_data_offset" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚âÊÌ¯ˇˇˇˇ
+ssquid:S00116f"VRename this field "num_samples" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø˝Ωáˇˇˇˇˇ
+isquid:S001172"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚åÓΩ
+isquid:S001172"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚åÓΩ
+isquid:S001172"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚åÓΩ
+osquid:S00117£"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÊΩå˚˚ˇˇˇˇ
+osquid:S00117£"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÊΩå˚˚ˇˇˇˇ
+osquid:S00117£"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÊΩå˚˚ˇˇˇˇ
+osquid:S00117£"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÊΩå˚˚ˇˇˇˇ
+osquid:S00117Ú"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰ø…€¸ˇˇˇˇ
+osquid:S00117Ú"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰ø…€¸ˇˇˇˇ
+Rsquid:S1161÷":Add the "@Override" annotation above this method signature(îáª”
+Wsquid:S1161˝":Add the "@Override" annotation above this method signature(Ùè˛¥˚ˇˇˇˇ

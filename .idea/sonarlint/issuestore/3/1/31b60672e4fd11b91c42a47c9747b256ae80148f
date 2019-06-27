@@ -1,0 +1,11 @@
+
+Hsquid:S10680",Remove this unused "complete" private field.(Ü¥ÿÿÿÿÿ
+Lsquid:S10681"0Remove this unused "lastPosition" private field.(²§‚øÿÿÿÿ
+Isquid:S1199_"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ
+ssquid:S14500"WRemove the "complete" field and declare it as a local variable in the relevant methods.(Ü¥ÿÿÿÿÿ
+wsquid:S14501"[Remove the "lastPosition" field and declare it as a local variable in the relevant methods.(²§‚øÿÿÿÿ
+]$squid:AssignmentInSubExpressionCheckC".Extract the assignment out of this expression.(˜”³h
+gsquid:CommentedOutCodeLine^"<This block of commented-out lines of code should be removed.(â¹Şüüÿÿÿÿ
+gsquid:CommentedOutCodeLined"<This block of commented-out lines of code should be removed.(´ ƒƒıÿÿÿÿ
+gsquid:CommentedOutCodeLinef"<This block of commented-out lines of code should be removed.(´ ƒƒıÿÿÿÿ
+Bsquid:S00108ˆ")Either remove or fill this block of code.(Äé†ˆ

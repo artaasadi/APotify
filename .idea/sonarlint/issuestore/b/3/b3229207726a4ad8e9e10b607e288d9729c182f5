@@ -1,0 +1,7 @@
+
+isquid:S001178"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õýˆñ
+ssquid:S3973:"WUse curly braces or indentation to denote the code conditionally executed by this "if".(Ù’›Ïýÿÿÿÿ
+hsquid:CommentedOutCodeLine‚"<This block of commented-out lines of code should be removed.(ÒÌâ–øÿÿÿÿ
+˜squid:S1186z"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(œÏþ®
+squid:S1186t"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ô¯¾Ïúÿÿÿÿ
+bsquid:CommentedOutCodeLine_"<This block of commented-out lines of code should be removed.(Ç•’
