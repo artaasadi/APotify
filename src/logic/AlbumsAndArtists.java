@@ -10,20 +10,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class Albums {
-    //    private String name;
-//    private ArrayList<File> files = new ArrayList<>();
-//
-//    public Albums(String name) {
-//        this.name = name;
-//    }
-//
-//    public void addFile(File file) throws InvalidDataException, IOException, UnsupportedTagException {
-//        Mp3File info = new Mp3File(file);
-//        if (info.getId3v1Tag().getAlbum().equals(name))
-//            files.add(file);
-//    }
+public class AlbumsAndArtists {
+
     private static HashMap<String, APlayLists> albums = new HashMap<>();
+    private static HashMap<String, APlayLists> artists = new HashMap<>();
 
     public static void makeAlbum() throws InvalidDataException, IOException, UnsupportedTagException {
         for (File file : MainWindow.left.libraries.getFiles()) {
@@ -42,7 +32,30 @@ public class Albums {
                         }
                     }
                     albums.put(tag.getAlbum(), playLists);
-                    System.out.println(tag.getAlbum()+":"+playLists.getFiles().size());
+                    System.out.println(tag.getAlbum() + ":" + playLists.getFiles().size());
+                }
+            }
+        }
+    }
+
+    public static void makeArtist() throws InvalidDataException, IOException, UnsupportedTagException {
+        for (File file : MainWindow.left.libraries.getFiles()) {
+            Mp3File info = new Mp3File(file);
+            if (info.hasId3v1Tag()) {
+                ID3v1 tag = info.getId3v1Tag();
+                if (!artists.containsKey(tag.getArtist())) {
+                    APlayLists playLists = new APlayLists(tag.getArtist());
+                    for (File file1 : MainWindow.left.libraries.getFiles()) {
+                        Mp3File info2 = new Mp3File(file1);
+                        if (info2.hasId3v1Tag()) {
+                            ID3v1 tag2 = info2.getId3v1Tag();
+                            if (!playLists.contain(file1) && tag2.getArtist().equals(tag.getArtist())) {
+                                playLists.addSong(file1);
+                            }
+                        }
+                    }
+                    artists.put(tag.getArtist(), playLists);
+                    System.out.println(tag.getArtist() + ":" + playLists.getFiles().size());
                 }
             }
         }
@@ -50,5 +63,9 @@ public class Albums {
 
     public static HashMap<String, APlayLists> getAlbums() {
         return albums;
+    }
+
+    public static HashMap<String, APlayLists> getArtists() {
+        return artists;
     }
 }

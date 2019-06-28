@@ -120,7 +120,7 @@ public class Main {
                         String album = id3v1.getAlbum();
                         String artist = id3v1.getArtist();
                         System.out.println("Artist:" + artist);
-                        System.out.println("Albums:" + album);
+                        System.out.println("AlbumsAndArtists:" + album);
                         System.out.println("Title:" + title);
 //                        byte[] imageData = id3v2tag.getAlbumImage();
 //                        //converting the bytes to an image

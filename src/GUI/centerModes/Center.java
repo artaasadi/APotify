@@ -6,7 +6,7 @@ import GUI.theme.Colors;
 import GUI.theme.ManualScrollBar;
 import com.mpatric.mp3agic.*;
 import logic.APlayLists;
-import logic.Albums;
+import logic.AlbumsAndArtists;
 import logic.PauseablePlayer;
 
 import javax.imageio.ImageIO;
@@ -160,7 +160,7 @@ public class Center extends JPanel {
         c.gridy = 1;
         c.weightx = 0.5;
         c.weighty = 0.5;
-        mainP.add(makePanel2("Albums", "\uD83D\uDCBF", Colors.getText2()), c);
+        mainP.add(makePanel2("AlbumsAndArtists", "\uD83D\uDCBF", Colors.getText2()), c);
         c.gridx = 1;
         c.gridy = 1;
         c.weightx = 0.5;
@@ -338,12 +338,14 @@ public class Center extends JPanel {
     }
 
     public Center(String s) {
+        //making panel---------------------------------------------------------
         JPanel mainP = new JPanel();
         mainP.setBackground(new Color(0, 0, 0, 0));
         mainP.setLayout(new GridLayout(5, 2));
+        //Album mode-----------------------------------------------------------
         if (s.equals("Albums")) {
-            for (APlayLists album : Albums.getAlbums().values()) {
-                JPanel albumPanel = makePanel2(album.getName(), "XXX", Colors.getText1());
+            for (APlayLists album : AlbumsAndArtists.getAlbums().values()) {
+                JPanel albumPanel = makePanel2(album.getName(), "\uD83D\uDCBF", Colors.getText1());
                 albumPanel.addMouseListener(new MouseAdapter() {
                     @Override
                     public void mouseClicked(MouseEvent e) {
@@ -360,17 +362,39 @@ public class Center extends JPanel {
                 });
                 mainP.add(albumPanel);
             }
-            ManualScrollBar msb = new ManualScrollBar();
-            scroll = (JScrollPane) msb.makeUI(mainP);
-            scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-            scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-            scroll.setBorder(BorderFactory.createEmptyBorder());
-            scroll.getVerticalScrollBar().setBackground(Colors.getDown());
-            scroll.getVerticalScrollBar().setForeground(Colors.getLeft());
-//            this.add(mainP);
-            this.add(scroll);
-            System.out.println(Albums.getAlbums().size());
         }
+        //Artist mode----------------------------------------------------------
+        else if (s.equals("Artists")){
+            for (APlayLists artist : AlbumsAndArtists.getArtists().values()) {
+                JPanel artistPanel = makePanel2(artist.getName(), "\uD83C\uDFA4", Colors.getText1());
+                artistPanel.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        try {
+                            MainWindow.changeCenter(new Center(artist));
+                        } catch (InvalidDataException e1) {
+                            e1.printStackTrace();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        } catch (UnsupportedTagException e1) {
+                            e1.printStackTrace();
+                        }
+                    }
+                });
+                mainP.add(artistPanel);
+            }
+        }
+        //scrollPane-----------------------------------------------------------
+        ManualScrollBar msb = new ManualScrollBar();
+        scroll = (JScrollPane) msb.makeUI(mainP);
+        scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scroll.setBorder(BorderFactory.createEmptyBorder());
+        scroll.getVerticalScrollBar().setBackground(Colors.getDown());
+        scroll.getVerticalScrollBar().setForeground(Colors.getLeft());
+//            this.add(mainP);
+        this.add(scroll);
+        System.out.println(AlbumsAndArtists.getAlbums().size());
     }
 
     public static PauseablePlayer getPlayer() {

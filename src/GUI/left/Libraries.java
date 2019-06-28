@@ -6,7 +6,7 @@ import GUI.theme.Colors;
 import com.mpatric.mp3agic.InvalidDataException;
 import com.mpatric.mp3agic.Mp3File;
 import com.mpatric.mp3agic.UnsupportedTagException;
-import logic.Albums;
+import logic.AlbumsAndArtists;
 import logic.FileReader;
 
 import javax.swing.*;
@@ -50,7 +50,7 @@ public class Libraries extends JPanel {
         this.add(add);
         add.addActionListener(handler);
         //List--------------------------------------------------------------
-//        String s[] = {"Songs", "Favorite Songs", "Albums", "Artists"};
+//        String s[] = {"Songs", "Favorite Songs", "AlbumsAndArtists", "Artists"};
         String s[] = {"\uD83C\uDFB5 Songs", "\uD83D\uDCBF Albums", "\uD83C\uDFA4 Artists"};
         JList list = new JList(s);
         list.setFont(new Font("A Nahar", Font.ITALIC, 17));
@@ -78,7 +78,7 @@ public class Libraries extends JPanel {
                         }
                     } else if (o.toString() == "\uD83D\uDCBF Albums") {
                         try {
-                            Albums.makeAlbum();
+                            AlbumsAndArtists.makeAlbum();
                             MainWindow.changeCenter(new Center("Albums"));
                         } catch (InvalidDataException e1) {
                             e1.printStackTrace();
@@ -88,7 +88,16 @@ public class Libraries extends JPanel {
                             e1.printStackTrace();
                         }
                     } else if (o.toString() == "\uD83C\uDFA4 Artists") {
-
+                        try {
+                            AlbumsAndArtists.makeArtist();
+                            MainWindow.changeCenter(new Center("Artists"));
+                        } catch (InvalidDataException e1) {
+                            e1.printStackTrace();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        } catch (UnsupportedTagException e1) {
+                            e1.printStackTrace();
+                        }
                     }
                 }
             }
