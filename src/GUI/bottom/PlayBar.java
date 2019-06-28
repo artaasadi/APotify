@@ -261,14 +261,11 @@ public class PlayBar extends JPanel {
                         e1.printStackTrace();
                     }
                 }
-                System.out.println("play : " + Center.getIndex());
             } else if (command.contains("\u23F8️")) {
                 play.setText("▶️");
                 boolean b = false;
                 if (MainWindow.player != null)
                     b = MainWindow.player.pause();
-                System.out.println(b);
-                System.out.println("pause : " + Center.getIndex());
             }
             //shuffleAction----------------------------------------
             else if (command.contains("\uD83D\uDD00")) {
@@ -327,17 +324,6 @@ public class PlayBar extends JPanel {
             } catch (UnsupportedTagException e1) {
                 e1.printStackTrace();
             }
-//            } else if (command.contains("⏮️")) {
-////                if (a > 0) {
-////                    player.getPlayer().close();
-////                    player.stop();
-////                    FileInputStream stream = new FileInputStream(Libraries.getFiles().get(1));
-////                    ;
-////                    player = new PauseablePlayer(stream);
-////                    player.play();
-////                    a--;
-////                    System.out.println(fileReader.getFileViaID().get(a).getName());
-//            }
         }
     }
 }

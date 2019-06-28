@@ -34,19 +34,7 @@ public class Center extends JPanel {
     private static HashMap<Integer, String> playListIndexHashmap = new HashMap<>();
     private int i;
     private JScrollPane scroll;
-    private String colorSet,themeSet;
-
-    /**
-     * structure for Center in default mode
-     *
-     * @throws InvalidDataException
-     * @throws IOException
-     * @throws UnsupportedTagException
-     */
-//    public Center() {
-//        this.setBackground(Colors.getCenter());
-//        wallpaper = Colors.getWallpaper();
-//    }
+    private String colorSet, themeSet;
 
     /**
      * structure for Center in Songs mode
@@ -219,10 +207,10 @@ public class Center extends JPanel {
 
     /**
      * setting panel
+     *
      * @param f to understand its setting
      */
     public Center(float f) {
-        System.out.println("run");
         wallpaper = Colors.getWallpaper();
         Label libraryLabel = new Label("__________________Colors__________________");
         libraryLabel.setBackground(Colors.getLeft());
@@ -287,8 +275,7 @@ public class Center extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    MainWindow.refreshColors(themeSet,colorSet);
-                    System.out.println(themeSet+"   "+colorSet);
+                    MainWindow.refreshColors(themeSet, colorSet);
                 } catch (InvalidDataException e1) {
                     e1.printStackTrace();
                 } catch (IOException e1) {
@@ -432,9 +419,9 @@ public class Center extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (s.equals("gold") || s.equals("rose gold") || s.equals("green") || s.equals("blue") || s.equals("purple")) {
-                    colorSet=s;
-                }else {
-                    themeSet=s;
+                    colorSet = s;
+                } else {
+                    themeSet = s;
                 }
             }
         });
