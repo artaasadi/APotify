@@ -61,7 +61,7 @@ public class Center extends JPanel {
                 @Override
                 public void mousePressed(MouseEvent me) {
                     if (me.getButton() == MouseEvent.BUTTON1) {
-                        indexHashmap=new HashMap<>(songsIndextHashmap);
+                        indexHashmap = new HashMap<>(songsIndextHashmap);
                         songName = name;
                         index = Libraries.getIndexes().get(Libraries.getInformation().get(name));
                     } else if (me.getButton() == MouseEvent.BUTTON3) {
@@ -105,7 +105,7 @@ public class Center extends JPanel {
                 @Override
                 public void mousePressed(MouseEvent me) {
                     if (me.getButton() == MouseEvent.BUTTON1) {
-                        indexHashmap=new HashMap<>(playListIndexHashmap);
+                        indexHashmap = new HashMap<>(playListIndexHashmap);
                         songName = name;
                         index = aPlayLists.getIndex(file);
                     } else if (me.getButton() == MouseEvent.BUTTON3) {
@@ -337,6 +337,11 @@ public class Center extends JPanel {
         this.add(scroll);
     }
 
+    /**
+     * Albums and Artists Part
+     *
+     * @param s shows that it is Albums or Artists
+     */
     public Center(String s) {
         //making panel---------------------------------------------------------
         JPanel mainP = new JPanel();
@@ -364,7 +369,7 @@ public class Center extends JPanel {
             }
         }
         //Artist mode----------------------------------------------------------
-        else if (s.equals("Artists")){
+        else if (s.equals("Artists")) {
             for (APlayLists artist : AlbumsAndArtists.getArtists().values()) {
                 JPanel artistPanel = makePanel2(artist.getName(), "\uD83C\uDFA4", Colors.getText1());
                 artistPanel.addMouseListener(new MouseAdapter() {

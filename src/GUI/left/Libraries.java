@@ -130,6 +130,9 @@ public class Libraries extends JPanel {
         return names;
     }
 
+    /**
+     * adding songs to library
+     */
     private class Handle implements ActionListener {
 
         @Override
