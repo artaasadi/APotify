@@ -27,7 +27,8 @@ public class Libraries extends JPanel {
     private static HashMap<Integer, File> filesVIAid = new HashMap<>();
     private Handle handler = new Handle();
     private static HashMap<File, Integer> indexes = new HashMap<>();
-    private static HashMap<PushbackReader,Mp3File> tags;
+    private static HashMap<PushbackReader, Mp3File> tags;
+    private static ArrayList<String> names = new ArrayList<>();
 
     public Libraries() {
         this.setBackground(Colors.getLeft());
@@ -49,7 +50,7 @@ public class Libraries extends JPanel {
         add.addActionListener(handler);
         //List--------------------------------------------------------------
 //        String s[] = {"Songs", "Favorite Songs", "Albums", "Artists"};
-        String s[]={"\uD83C\uDFB5 Songs","❤️ Favorite Songs","\uD83D\uDCBF Albums","\uD83C\uDFA4 Artists"};
+        String s[] = {"\uD83C\uDFB5 Songs", "❤️ Favorite Songs", "\uD83D\uDCBF Albums", "\uD83C\uDFA4 Artists"};
         JList list = new JList(s);
         list.addMouseListener(new MouseAdapter() {
             @Override
@@ -70,7 +71,7 @@ public class Libraries extends JPanel {
                 int index = theList.locationToIndex(e.getPoint());
                 if (index >= 0) {
                     Object o = theList.getModel().getElementAt(index);
-                    if (o.toString()=="\uD83C\uDFB5 Songs"){
+                    if (o.toString() == "\uD83C\uDFB5 Songs") {
                         try {
                             MainWindow.changeCenter(new Center(0));
                         } catch (InvalidDataException e1) {
@@ -108,6 +109,10 @@ public class Libraries extends JPanel {
         return tags;
     }
 
+    public static ArrayList<String> getNames() {
+        return names;
+    }
+
     private class Handle implements ActionListener {
 
         @Override
@@ -120,6 +125,7 @@ public class Libraries extends JPanel {
                     information.put(fileReader.getFile()[i].getName(), fileReader.getFile()[i]);
                     indexes.put(fileReader.getFile()[i], i);
                     filesVIAid.put(i, fileReader.getFile()[i]);
+                    names.add(fileReader.getFile()[i].getName());
                 }
                 try {
 
