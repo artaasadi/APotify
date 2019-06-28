@@ -305,8 +305,8 @@ public class Center extends JPanel {
         mainP.setBackground(new Color(0, 0, 0, 0));
         mainP.setLayout(new BoxLayout(mainP, BoxLayout.Y_AXIS));
         this.setLayout(new BorderLayout());
-        for (i = 0; i < MainWindow.topPanel.getFound().size(); i++) {
-            File file = MainWindow.topPanel.getFound().get(i);
+        for (i = 0; i < MainWindow.topPanel.getFounds().size(); i++) {
+            File file = MainWindow.topPanel.getFounds().get(i);
             String name = file.getName();
             JPanel song = makePanel(name);
             searchIndexHashmap.put(i, name);

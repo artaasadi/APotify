@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class Top extends JPanel {
     static JTextField search;
-    private ArrayList<File> found=new ArrayList<>();
+    private ArrayList<File> founds =new ArrayList<>();
 
     public Top() {
         //TopBorder
@@ -46,10 +46,17 @@ public class Top extends JPanel {
         this.add(panel);
     }
 
-    public ArrayList<File> getFound() {
-        return found;
+    /**
+     * gives founds
+     * @return founds
+     */
+    public ArrayList<File> getFounds() {
+        return founds;
     }
 
+    /**
+     * adding ActionListener for searchField
+     */
     private class Handle implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             String name = search.getText();
@@ -57,7 +64,7 @@ public class Top extends JPanel {
             for (int i = 0; i < Libraries.getNames().size(); i++) {
                 tmp = Libraries.getNames().get(i);
                 if (tmp.contains(name))
-                    found.add(Libraries.getInformation().get(tmp));
+                    founds.add(Libraries.getInformation().get(tmp));
             }
             try {
                 MainWindow.changeCenter(new Center((double)1));
