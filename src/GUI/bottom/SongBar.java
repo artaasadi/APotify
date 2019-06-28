@@ -117,7 +117,16 @@ public class SongBar extends JPanel {
         //heart----------------------------------------------------------------
         heart.setBackground(Colors.getDown());
         heart.setPreferredSize(new Dimension(20, 0));
-        JLabel heartLabel = new JLabel("\uD83D\uDC94");
+        JLabel heartLabel;
+        if (MainWindow.player != null) {
+            if (MainWindow.left.gPlayLists.playLists.get(0).contain(Libraries.getFilesVIAid().get(Center.getIndex()))) {
+                heartLabel = new JLabel("♥");
+            } else {
+                heartLabel = new JLabel("\uD83D\uDC94");
+            }
+        }else {
+            heartLabel = new JLabel("\uD83D\uDC94");
+        }
         heartLabel.setBackground(Colors.getDown());
         heartLabel.setForeground(Colors.getText2());
         heartLabel.addMouseListener(new MouseAdapter() {
@@ -126,10 +135,12 @@ public class SongBar extends JPanel {
                 if (heartLabel.getText().equals("\uD83D\uDC94")){
                     heartLabel.setFont(new Font("B Nahar", Font.PLAIN, 18));
                     heartLabel.setText("♥");
+                    MainWindow.left.gPlayLists.playLists.get(0).addSong(Libraries.getFilesVIAid().get(Center.getIndex()));
 
                 }else if (heartLabel.getText().equals("♥")){
                     heartLabel.setFont(new Font("B Nahar", Font.PLAIN, 15));
                     heartLabel.setText("\uD83D\uDC94");
+                    MainWindow.left.gPlayLists.playLists.get(0).removeSong(Libraries.getFilesVIAid().get(Center.getIndex()));
                 }
             }
 

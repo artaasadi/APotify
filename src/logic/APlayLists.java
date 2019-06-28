@@ -29,12 +29,23 @@ public class APlayLists {
         return files;
     }
 
-    public int getIndex(File file){
+    public int getIndex(File file) {
         return files.indexOf(file);
     }
 
     public void removeSong(File file) {
         files.remove(file);
+    }
+
+    public boolean contain(File file) {
+        boolean found = false;
+        for (int i = 0; i < files.size(); i++) {
+            if (files.get(i).getName().equals(file.getName())) {
+                found = true;
+                break;
+            }
+        }
+        return found;
     }
 
     public void changeName(String newName) {
