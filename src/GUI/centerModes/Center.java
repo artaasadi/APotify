@@ -151,7 +151,53 @@ public class Center extends JPanel {
         wallpaper = Colors.getWallpaper();
         JPanel mainP = new JPanel();
         mainP.setBackground(new Color(0, 0, 0, 0));
-
+        Label libraryLabel=new Label("__________________LIBRARY__________________");
+        libraryLabel.setBackground(Colors.getLeft());
+        libraryLabel.setForeground(Colors.getText2());
+        this.setLayout(new GridBagLayout());
+        GridBagConstraints c=new GridBagConstraints();
+        c.gridy=0;
+        c.gridx=0;
+        c.gridwidth=2;
+//        c.weightx=0.5;
+//        c.weighty=0.5;
+        this.add(libraryLabel,c);
+        c.gridwidth=1;
+        c.gridx=0;
+        c.gridy=1;
+        c.weightx=0.5;
+        c.weighty=0.5;
+        this.add(makePanel2("Albums"),c);
+        c.gridx=1;
+        c.gridy=1;
+        c.weightx=0.5;
+        c.weighty=0.5;
+        this.add(makePanel2("Songs"),c);
+        c.gridx=0;
+        c.gridy=2;
+        c.weightx=0.5;
+        c.weighty=0.5;
+        this.add(makePanel2("Favorite"),c);
+        Label playlistLabel=new Label("__________________PLAYLISTS__________________");
+        playlistLabel.setForeground(Colors.getText2());
+        playlistLabel.setBackground(Colors.getLeft());
+        c.gridy=3;
+        c.gridx=0;
+        c.gridwidth=2;
+        c.weightx=1;
+        c.weighty=1;
+        this.add(playlistLabel,c);
+        c.gridwidth=1;
+        c.gridx=0;
+        c.gridy=4;
+        c.weightx=0.5;
+        c.weighty=0.5;
+        this.add(makePanel2("arta1"),c);
+        c.gridx=1;
+        c.gridy=4;
+        c.weightx=0.5;
+        c.weighty=0.5;
+        this.add(makePanel2("arta2"),c);
         this.setLayout(new BorderLayout());
         this.add(mainP);
     }
@@ -250,7 +296,16 @@ public class Center extends JPanel {
         songInfo.setPreferredSize(new Dimension(0, 100));
         return songInfo;
     }
-
+    private JPanel makePanel2(String s){
+        JPanel panel = new JPanel();
+        JLabel name = new JLabel(s);
+        panel.add(name);
+        panel.setBackground(new Color(225, 225, 225, 20));
+        Border border = BorderFactory.createLineBorder(Colors.getLeft());
+        panel.setBorder(border);
+//        panel.setPreferredSize(new Dimension(0, 100));
+        return panel;
+    }
     /**
      * Overriden method to make wallpaper
      *
