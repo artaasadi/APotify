@@ -61,7 +61,7 @@ public class Center extends JPanel {
                 @Override
                 public void mousePressed(MouseEvent me) {
                     if (me.getButton() == MouseEvent.BUTTON1) {
-                        indexHashmap = songsIndextHashmap;
+                        indexHashmap=new HashMap<>(songsIndextHashmap);
                         songName = name;
                         index = Libraries.getIndexes().get(Libraries.getInformation().get(name));
                     } else if (me.getButton() == MouseEvent.BUTTON3) {
@@ -105,7 +105,7 @@ public class Center extends JPanel {
                 @Override
                 public void mousePressed(MouseEvent me) {
                     if (me.getButton() == MouseEvent.BUTTON1) {
-                        indexHashmap = playListIndexHashmap;
+                        indexHashmap=new HashMap<>(playListIndexHashmap);
                         songName = name;
                         index = aPlayLists.getIndex(file);
                     } else if (me.getButton() == MouseEvent.BUTTON3) {
@@ -337,19 +337,18 @@ public class Center extends JPanel {
         this.add(scroll);
     }
 
-    public Center(String s){
-        JPanel mainP= new JPanel();
+    public Center(String s) {
+        JPanel mainP = new JPanel();
         mainP.setBackground(new Color(0, 0, 0, 0));
-        mainP.setLayout(new GridLayout(5,2));
-        if (s.equals("Albums")){
-            System.out.println("qqq");
-            for (APlayLists album: Albums.getAlbums().values()) {
-                JPanel albumPanel = makePanel2(album.getName(),"XXX",Colors.getText1());
+        mainP.setLayout(new GridLayout(5, 2));
+        if (s.equals("Albums")) {
+            for (APlayLists album : Albums.getAlbums().values()) {
+                JPanel albumPanel = makePanel2(album.getName(), "XXX", Colors.getText1());
                 albumPanel.addMouseListener(new MouseAdapter() {
                     @Override
                     public void mouseClicked(MouseEvent e) {
                         try {
-                            Albums.resolvingSickProblem(album);
+                            MainWindow.changeCenter(new Center(album));
                         } catch (InvalidDataException e1) {
                             e1.printStackTrace();
                         } catch (IOException e1) {
@@ -370,8 +369,10 @@ public class Center extends JPanel {
             scroll.getVerticalScrollBar().setForeground(Colors.getLeft());
 //            this.add(mainP);
             this.add(scroll);
+            System.out.println(Albums.getAlbums().size());
         }
     }
+
     public static PauseablePlayer getPlayer() {
         return player;
     }

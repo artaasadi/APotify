@@ -1,7 +1,6 @@
 package logic;
 
 import GUI.MainWindow;
-import GUI.centerModes.Center;
 import com.mpatric.mp3agic.ID3v1;
 import com.mpatric.mp3agic.InvalidDataException;
 import com.mpatric.mp3agic.Mp3File;
@@ -36,13 +35,14 @@ public class Albums {
                     for (File file1 : MainWindow.left.libraries.getFiles()) {
                         Mp3File info2 = new Mp3File(file1);
                         if (info2.hasId3v1Tag()) {
-                            ID3v1 tag2 = info.getId3v1Tag();
-                            if (!playLists.contain(file1) && tag2.getAlbum() == tag.getAlbum()) {
+                            ID3v1 tag2 = info2.getId3v1Tag();
+                            if (!playLists.contain(file1) && tag2.getAlbum().equals(tag.getAlbum())) {
                                 playLists.addSong(file1);
                             }
                         }
                     }
                     albums.put(tag.getAlbum(), playLists);
+                    System.out.println(tag.getAlbum()+":"+playLists.getFiles().size());
                 }
             }
         }
@@ -50,9 +50,5 @@ public class Albums {
 
     public static HashMap<String, APlayLists> getAlbums() {
         return albums;
-    }
-
-    public static void resolvingSickProblem(APlayLists aPlayLists) throws InvalidDataException, IOException, UnsupportedTagException {
-        MainWindow.changeCenter(new Center(aPlayLists));
     }
 }
