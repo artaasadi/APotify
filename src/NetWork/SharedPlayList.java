@@ -8,6 +8,4 @@ public class SharedPlayList extends APlayLists implements Serializable {
     public SharedPlayList() {
         super("Shared");
     }
-
-
 }

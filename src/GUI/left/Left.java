@@ -6,8 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Left extends JPanel {
-    public  HomeAndSetting browseAndRadio;
-    public Libraries libraries;
+    public HomeAndSetting browseAndRadio;
+    public static Libraries libraries;
     public GPlayLists gPlayLists;
 
     public Left() {

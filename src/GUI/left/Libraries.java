@@ -6,6 +6,7 @@ import GUI.theme.Colors;
 import com.mpatric.mp3agic.InvalidDataException;
 import com.mpatric.mp3agic.Mp3File;
 import com.mpatric.mp3agic.UnsupportedTagException;
+import logic.Albums;
 import logic.FileReader;
 
 import javax.swing.*;
@@ -50,14 +51,8 @@ public class Libraries extends JPanel {
         add.addActionListener(handler);
         //List--------------------------------------------------------------
 //        String s[] = {"Songs", "Favorite Songs", "Albums", "Artists"};
-        String s[] = {"\uD83C\uDFB5 Songs", "❤️ Favorite Songs", "\uD83D\uDCBF Albums", "\uD83C\uDFA4 Artists"};
+        String s[] = {"\uD83C\uDFB5 Songs", "\uD83D\uDCBF Albums", "\uD83C\uDFA4 Artists"};
         JList list = new JList(s);
-        list.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-        });
         list.setFont(new Font("A Nahar", Font.ITALIC, 17));
         list.setSelectionForeground(Colors.getText2());
         list.setSelectionBackground(Colors.getLeft());
@@ -81,6 +76,19 @@ public class Libraries extends JPanel {
                         } catch (UnsupportedTagException e1) {
                             e1.printStackTrace();
                         }
+                    } else if (o.toString() == "\uD83D\uDCBF Albums") {
+                        try {
+                            Albums.makeAlbum();
+                            MainWindow.changeCenter(new Center("Albums"));
+                        } catch (InvalidDataException e1) {
+                            e1.printStackTrace();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        } catch (UnsupportedTagException e1) {
+                            e1.printStackTrace();
+                        }
+                    } else if (o.toString() == "\uD83C\uDFA4 Artists") {
+
                     }
                 }
             }

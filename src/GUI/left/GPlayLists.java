@@ -41,8 +41,8 @@ public class GPlayLists extends JPanel {
         add.addActionListener(MainWindow.addAction());
         this.add(add);
         //showerList----------------------------------------------------------
-        playLists.add(new APlayLists("Favorite"));
-        playLists.add(new APlayLists("Shared"));
+        playLists.add(new APlayLists("❤️ Favorite"));
+        playLists.add(new APlayLists("\uD83D\uDCE4 Shared"));
         ArrayList<String> playListNames = new ArrayList<>();
         for (int i = 0; i < playLists.size(); i++) {
             playListNames.add(playLists.get(i).getName());
@@ -143,7 +143,7 @@ public class GPlayLists extends JPanel {
 //        }
 //    }
 
-    public GPlayLists getGPlayLists() {
+    private GPlayLists getGPlayLists() {
         return this;
     }
 

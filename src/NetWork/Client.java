@@ -13,13 +13,21 @@ public class Client {
         for (int i = 0; i < fr.getFile().length; i++) {
             shared.addSong(fr.getFile()[i]);
         }
-        Socket socket = new Socket("172.23.157.249", 9488);
+        Socket socket = new Socket("192.168.1.22", 1994);
         System.out.println("Connected!");
         OutputStream outputStream = socket.getOutputStream();
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+        BufferedOutputStream stream = new BufferedOutputStream(outputStream);
         ArrayList<File> fileArrayList = shared.getFiles();
+        BufferedInputStream bufferedInputStream=new BufferedInputStream(new InputStream() {
+            @Override
+            public int read() throws IOException {
+                return 0;
+            }
+        });
         System.out.println("Sending files to the ServerSocket");
-        objectOutputStream.writeObject(fileArrayList);
+//        while () {
+//
+//        }
         System.out.println("Closing socket and terminating program.");
         socket.close();
     }

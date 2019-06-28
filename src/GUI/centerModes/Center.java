@@ -6,6 +6,7 @@ import GUI.theme.Colors;
 import GUI.theme.ManualScrollBar;
 import com.mpatric.mp3agic.*;
 import logic.APlayLists;
+import logic.Albums;
 import logic.PauseablePlayer;
 
 import javax.imageio.ImageIO;
@@ -297,6 +298,7 @@ public class Center extends JPanel {
 
     /**
      * search panel
+     *
      * @param d
      */
     public Center(double d) throws InvalidDataException, IOException, UnsupportedTagException {
@@ -333,6 +335,42 @@ public class Center extends JPanel {
         scroll.getVerticalScrollBar().setForeground(Colors.getLeft());
 
         this.add(scroll);
+    }
+
+    public Center(String s){
+        JPanel mainP= new JPanel();
+        mainP.setBackground(new Color(0, 0, 0, 0));
+        mainP.setLayout(new GridLayout(5,2));
+        if (s.equals("Albums")){
+            System.out.println("qqq");
+            for (APlayLists album: Albums.getAlbums().values()) {
+                JPanel albumPanel = makePanel2(album.getName(),"XXX",Colors.getText1());
+                albumPanel.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        try {
+                            MainWindow.changeCenter(new Center(album));
+                        } catch (InvalidDataException e1) {
+                            e1.printStackTrace();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        } catch (UnsupportedTagException e1) {
+                            e1.printStackTrace();
+                        }
+                    }
+                });
+                mainP.add(albumPanel);
+            }
+            ManualScrollBar msb = new ManualScrollBar();
+            scroll = (JScrollPane) msb.makeUI(mainP);
+            scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+            scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+            scroll.setBorder(BorderFactory.createEmptyBorder());
+            scroll.getVerticalScrollBar().setBackground(Colors.getDown());
+            scroll.getVerticalScrollBar().setForeground(Colors.getLeft());
+//            this.add(mainP);
+            this.add(scroll);
+        }
     }
     public static PauseablePlayer getPlayer() {
         return player;
