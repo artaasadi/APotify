@@ -54,10 +54,9 @@ public class Top extends JPanel {
                 if (tmp.contains(name))
                     break;
             }
-            if (found != null) {
                 found = Libraries.getInformation().get(tmp);
                 System.out.println(found.getName());
+
             }
         }
     }
-}
