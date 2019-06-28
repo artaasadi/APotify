@@ -75,7 +75,6 @@ public class MainWindow {
     public static void changeCenter(Center c) {
         mainFrame.remove(center);
         center = c;
-        System.out.println("BULIBALA");
         mainFrame.add(center, BorderLayout.CENTER);
         mainFrame.setVisible(true);
     }

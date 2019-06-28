@@ -54,9 +54,7 @@ public class Libraries extends JPanel {
         list.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                if (e.getButton()==MouseEvent.BUTTON3){
 
-                }
             }
         });
         list.setFont(new Font("A Nahar", Font.ITALIC, 17));

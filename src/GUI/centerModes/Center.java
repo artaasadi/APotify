@@ -148,9 +148,8 @@ public class Center extends JPanel {
      * @param f
      */
     public Center(float f){
+        System.out.println("run");
         wallpaper = Colors.getWallpaper();
-        JPanel mainP = new JPanel();
-        mainP.setBackground(new Color(0, 0, 0, 0));
         Label libraryLabel=new Label("__________________LIBRARY__________________");
         libraryLabel.setBackground(Colors.getLeft());
         libraryLabel.setForeground(Colors.getText2());
@@ -198,8 +197,6 @@ public class Center extends JPanel {
         c.weightx=0.5;
         c.weighty=0.5;
         this.add(makePanel2("arta2"),c);
-        this.setLayout(new BorderLayout());
-        this.add(mainP);
     }
 
     public static PauseablePlayer getPlayer() {
@@ -301,9 +298,10 @@ public class Center extends JPanel {
         JLabel name = new JLabel(s);
         panel.add(name);
         panel.setBackground(new Color(225, 225, 225, 20));
+        name.setForeground(Colors.getText1());
         Border border = BorderFactory.createLineBorder(Colors.getLeft());
         panel.setBorder(border);
-//        panel.setPreferredSize(new Dimension(0, 100));
+        panel.setPreferredSize(new Dimension(300, 200));
         return panel;
     }
     /**
