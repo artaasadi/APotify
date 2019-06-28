@@ -1,18 +1,23 @@
 package GUI;
 
+import GUI.centerModes.Center;
 import GUI.left.Libraries;
 import GUI.theme.Colors;
 import GUI.theme.RoundJTextField;
+import com.mpatric.mp3agic.InvalidDataException;
+import com.mpatric.mp3agic.UnsupportedTagException;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class Top extends JPanel {
     static JTextField search;
-    private File found;
+    private ArrayList<File> found=new ArrayList<>();
 
     public Top() {
         //TopBorder
@@ -41,7 +46,7 @@ public class Top extends JPanel {
         this.add(panel);
     }
 
-    public File getFound() {
+    public ArrayList<File> getFound() {
         return found;
     }
 
@@ -52,11 +57,17 @@ public class Top extends JPanel {
             for (int i = 0; i < Libraries.getNames().size(); i++) {
                 tmp = Libraries.getNames().get(i);
                 if (tmp.contains(name))
-                    break;
+                    found.add(Libraries.getInformation().get(tmp));
             }
-                found = Libraries.getInformation().get(tmp);
-                System.out.println(found.getName());
-
+            try {
+                MainWindow.changeCenter(new Center((double)1));
+            } catch (InvalidDataException e1) {
+                e1.printStackTrace();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            } catch (UnsupportedTagException e1) {
+                e1.printStackTrace();
             }
         }
     }
+}

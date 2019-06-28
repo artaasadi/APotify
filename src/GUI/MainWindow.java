@@ -29,7 +29,7 @@ public class MainWindow {
     public static Left left;
     private static Right right;
     public static PauseablePlayer player;
-    private static Top topPanel;
+    public static Top topPanel;
     private static JFrame playListAddFrame;
 
     public static void main(String[] args) throws IOException, InvalidDataException, UnsupportedTagException {

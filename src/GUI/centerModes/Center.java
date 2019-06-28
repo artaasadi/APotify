@@ -28,10 +28,11 @@ public class Center extends JPanel {
     private static int index = -1;
     private FileInputStream fileInputStream;
     private static String songName;
-    private BufferedImage wallpaper;
+    private static BufferedImage wallpaper;
     private static HashMap<Integer, String> indexHashmap = new HashMap<>();
     private static HashMap<Integer, String> songsIndextHashmap = new HashMap<>();
     private static HashMap<Integer, String> playListIndexHashmap = new HashMap<>();
+    private static HashMap<Integer, String> searchIndexHashmap = new HashMap<>();
     private int i;
     private JScrollPane scroll;
     private String colorSet, themeSet;
@@ -294,6 +295,45 @@ public class Center extends JPanel {
         this.add(mainP);
     }
 
+    /**
+     * search panel
+     * @param d
+     */
+    public Center(double d) throws InvalidDataException, IOException, UnsupportedTagException {
+        wallpaper = Colors.getWallpaper();
+        JPanel mainP = new JPanel();
+        mainP.setBackground(new Color(0, 0, 0, 0));
+        mainP.setLayout(new BoxLayout(mainP, BoxLayout.Y_AXIS));
+        this.setLayout(new BorderLayout());
+        for (i = 0; i < MainWindow.topPanel.getFound().size(); i++) {
+            File file = MainWindow.topPanel.getFound().get(i);
+            String name = file.getName();
+            JPanel song = makePanel(name);
+            searchIndexHashmap.put(i, name);
+            song.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mousePressed(MouseEvent me) {
+                    if (me.getButton() == MouseEvent.BUTTON1) {
+                        indexHashmap = searchIndexHashmap;
+                        songName = name;
+                        index = Libraries.getIndexes().get(Libraries.getInformation().get(name));
+                    } else if (me.getButton() == MouseEvent.BUTTON3) {
+                        MainWindow.playListAddFrameMaker(me, file);
+                    }
+                }
+            });
+            mainP.add(song);
+        }
+        ManualScrollBar msb = new ManualScrollBar();
+        scroll = (JScrollPane) msb.makeUI(mainP);
+        scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scroll.setBorder(BorderFactory.createEmptyBorder());
+        scroll.getVerticalScrollBar().setBackground(Colors.getDown());
+        scroll.getVerticalScrollBar().setForeground(Colors.getLeft());
+
+        this.add(scroll);
+    }
     public static PauseablePlayer getPlayer() {
         return player;
     }
