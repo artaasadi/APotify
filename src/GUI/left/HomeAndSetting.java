@@ -33,7 +33,7 @@ public class HomeAndSetting extends JPanel {
                         MainWindow.changeCenter(new Center());
                         System.out.println("home");
                     }else if (o.toString()=="⚙️ Settings"){
-                        System.out.println("setting");
+                        MainWindow.changeCenter(new Center((float)1));
                     }
                 }
             }

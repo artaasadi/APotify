@@ -91,13 +91,13 @@ public class Center extends JPanel {
 
     /**
      * structure for showing playLists
+     *
      * @param aPlayLists
      * @throws InvalidDataException
      * @throws IOException
      * @throws UnsupportedTagException
      */
     public Center(APlayLists aPlayLists) throws InvalidDataException, IOException, UnsupportedTagException {
-        System.out.println("bilibili");
         wallpaper = Colors.getWallpaper();
         JPanel mainP = new JPanel();
         mainP.setBackground(new Color(0, 0, 0, 0));
@@ -112,7 +112,7 @@ public class Center extends JPanel {
                 @Override
                 public void mousePressed(MouseEvent me) {
                     if (me.getButton() == MouseEvent.BUTTON1) {
-                        indexHashmap = songsIndextHashmap;
+                        indexHashmap = playListIndexHashmap;
                         songName = name;
                         index = aPlayLists.getIndex(file);
                     } else if (me.getButton() == MouseEvent.BUTTON3) {
@@ -144,66 +144,65 @@ public class Center extends JPanel {
     }
 
     /**
-     * structure for setting
-     * @param f
+     * structure for home
      */
-    public Center(){
+    public Center() {
         System.out.println("run");
         wallpaper = Colors.getWallpaper();
-        Label libraryLabel=new Label("__________________LIBRARY__________________");
+        Label libraryLabel = new Label("__________________LIBRARY__________________");
         libraryLabel.setBackground(Colors.getLeft());
         libraryLabel.setForeground(Colors.getText2());
-        JPanel mainP=new JPanel();
-        mainP.setBackground(new Color(0,0,0,0));
+        JPanel mainP = new JPanel();
+        mainP.setBackground(new Color(0, 0, 0, 0));
         mainP.setLayout(new GridBagLayout());
-        GridBagConstraints c=new GridBagConstraints();
-        c.gridy=0;
-        c.gridx=0;
-        c.gridwidth=2;
+        GridBagConstraints c = new GridBagConstraints();
+        c.gridy = 0;
+        c.gridx = 0;
+        c.gridwidth = 2;
 //        c.weightx=0.5;
 //        c.weighty=0.5;
-        mainP.add(libraryLabel,c);
-        c.gridwidth=1;
-        c.gridx=0;
-        c.gridy=1;
-        c.weightx=0.5;
-        c.weighty=0.5;
-        mainP.add(makePanel2("Albums","\uD83D\uDCBF"),c);
-        c.gridx=1;
-        c.gridy=1;
-        c.weightx=0.5;
-        c.weighty=0.5;
-        mainP.add(makePanel2("Songs","\uD83C\uDFB5"),c);
-        c.gridx=0;
-        c.gridy=2;
-        c.weightx=0.5;
-        c.weighty=0.5;
-        mainP.add(makePanel2("Favorite","❤"),c);
-        Label playlistLabel=new Label("__________________PLAYLISTS__________________");
+        mainP.add(libraryLabel, c);
+        c.gridwidth = 1;
+        c.gridx = 0;
+        c.gridy = 1;
+        c.weightx = 0.5;
+        c.weighty = 0.5;
+        mainP.add(makePanel2("Albums", "\uD83D\uDCBF", Colors.getText2()), c);
+        c.gridx = 1;
+        c.gridy = 1;
+        c.weightx = 0.5;
+        c.weighty = 0.5;
+        mainP.add(makePanel2("Songs", "\uD83C\uDFB5", Colors.getText2()), c);
+        c.gridx = 0;
+        c.gridy = 2;
+        c.weightx = 0.5;
+        c.weighty = 0.5;
+        mainP.add(makePanel2("Favorite", "❤", Colors.getText2()), c);
+        Label playlistLabel = new Label("__________________THEME__________________");
         playlistLabel.setForeground(Colors.getText2());
         playlistLabel.setBackground(Colors.getLeft());
-        c.gridy=3;
-        c.gridx=0;
-        c.gridwidth=2;
-        c.weightx=1;
-        c.weighty=1;
-        mainP.add(playlistLabel,c);
-        c.gridwidth=1;
-        c.gridx=0;
-        c.gridy=4;
-        c.weightx=0.5;
-        c.weighty=0.5;
-        mainP.add(makePanel2("arta1","\uD83D\uDC64"),c);
-        c.gridx=1;
-        c.gridy=4;
-        c.weightx=0.5;
-        c.weighty=0.5;
-        mainP.add(makePanel2("arta2","\uD83D\uDC64"),c);
-        c.gridx=0;
-        c.gridy=5;
-        c.weightx=0.5;
-        c.weighty=0.5;
-        mainP.add(makePanel2("arta3","\uD83D\uDC64"),c);
+        c.gridy = 3;
+        c.gridx = 0;
+        c.gridwidth = 2;
+        c.weightx = 1;
+        c.weighty = 1;
+        mainP.add(playlistLabel, c);
+        c.gridwidth = 1;
+        c.gridx = 0;
+        c.gridy = 4;
+        c.weightx = 0.5;
+        c.weighty = 0.5;
+        mainP.add(makePanel2("arta1", "\uD83D\uDC64", Colors.getText1()), c);
+        c.gridx = 1;
+        c.gridy = 4;
+        c.weightx = 0.5;
+        c.weighty = 0.5;
+        mainP.add(makePanel2("arta2", "\uD83D\uDC64", Colors.getText1()), c);
+        c.gridx = 0;
+        c.gridy = 5;
+        c.weightx = 0.5;
+        c.weighty = 0.5;
+        mainP.add(makePanel2("arta3", "\uD83D\uDC64", Colors.getText1()), c);
         ManualScrollBar msb = new ManualScrollBar();
         scroll = (JScrollPane) msb.makeUI(mainP);
         scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
@@ -211,7 +210,64 @@ public class Center extends JPanel {
         scroll.setBorder(BorderFactory.createEmptyBorder());
         scroll.getVerticalScrollBar().setBackground(Colors.getDown());
         scroll.getVerticalScrollBar().setForeground(Colors.getLeft());
+        this.add(mainP);
         this.add(scroll);
+    }
+
+    public Center(float f) {
+        System.out.println("run");
+        wallpaper = Colors.getWallpaper();
+        Label libraryLabel = new Label("__________________Colors__________________");
+        libraryLabel.setBackground(Colors.getLeft());
+        libraryLabel.setForeground(Colors.getText2());
+        JPanel mainP = new JPanel();
+        mainP.setBackground(new Color(0, 0, 0, 0));
+        mainP.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        c.gridy = 0;
+        c.gridx = 0;
+        c.gridwidth = 2;
+        mainP.add(libraryLabel, c);
+        c.gridwidth = 1;
+        c.gridx = 0;
+        c.gridy = 1;
+        c.weightx = 0.5;
+        c.weighty = 0.5;
+        JPanel roseGoldPanel = makePanel2("ROSE GOLD", "\uD83D\uDD36", new Color(140, 80, 83));
+        mainP.add(roseGoldPanel, c);
+        c.gridx = 1;
+        c.gridy = 1;
+        c.weightx = 0.5;
+        c.weighty = 0.5;
+        JPanel goldPanel = makePanel2("GOLD", "\uD83D\uDD36", new Color(200, 170, 130));
+        mainP.add(goldPanel, c);
+        c.gridx = 0;
+        c.gridy = 2;
+        c.weightx = 0.5;
+        c.weighty = 0.5;
+        JPanel green = makePanel2("GREEN", "\uD83D\uDD36", new Color(125, 160, 124));
+        mainP.add(green, c);
+        Label playlistLabel = new Label("__________________THEME__________________");
+        playlistLabel.setForeground(Colors.getText2());
+        playlistLabel.setBackground(Colors.getLeft());
+        c.gridy = 3;
+        c.gridx = 0;
+        c.gridwidth = 2;
+        c.weightx = 1;
+        c.weighty = 1;
+        mainP.add(playlistLabel, c);
+        c.gridwidth = 1;
+        c.gridx = 0;
+        c.gridy = 4;
+        c.weightx = 0.5;
+        c.weighty = 0.5;
+        mainP.add(makePanel2("DARK", "\uD83D\uDC64", new Color(40, 40, 40)), c);
+        c.gridx = 1;
+        c.gridy = 4;
+        c.weightx = 0.5;
+        c.weighty = 0.5;
+        mainP.add(makePanel2("LIGHT", "\uD83D\uDC64", new Color(196, 205, 207)), c);
+        this.add(mainP);
     }
 
     public static PauseablePlayer getPlayer() {
@@ -220,6 +276,7 @@ public class Center extends JPanel {
 
     /**
      * a private method to make JPanel for every song
+     *
      * @param s song name
      * @return JPanel
      * @throws InvalidDataException
@@ -310,31 +367,33 @@ public class Center extends JPanel {
 
     /**
      * making panels mode 2
+     *
      * @param s
      * @return panel
      */
-    private JPanel makePanel2(String s,String e){
+    private JPanel makePanel2(String s, String e, Color color) {
         //panel----------------------------------------------------------
         JPanel panel = new JPanel();
         panel.setBackground(new Color(225, 225, 225, 20));
         Border border = BorderFactory.createLineBorder(Colors.getLeft());
         panel.setBorder(border);
         panel.setPreferredSize(new Dimension(300, 200));
-        panel.setLayout(new GridLayout(2,1));
+        panel.setLayout(new GridLayout(2, 1));
         //name-----------------------------------------------------------
         JLabel name = new JLabel(s);
         name.setHorizontalAlignment(SwingConstants.CENTER);
         name.setForeground(Colors.getText1());
         panel.add(name);
         //emoji----------------------------------------------------------
-        JLabel emoji=new JLabel(e);
+        JLabel emoji = new JLabel(e);
         emoji.setHorizontalAlignment(SwingConstants.CENTER);
-        emoji.setFont(new Font("B Nahar",Font.PLAIN,95));
-        emoji.setForeground(Colors.getText2());
-        emoji.setPreferredSize(new Dimension(150,150));
+        emoji.setFont(new Font("B Nahar", Font.PLAIN, 95));
+        emoji.setForeground(color);
+        emoji.setPreferredSize(new Dimension(150, 150));
         panel.add(emoji);
         return panel;
     }
+
     /**
      * Overriden method to make wallpaper
      *
