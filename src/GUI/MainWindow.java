@@ -194,6 +194,7 @@ public class MainWindow {
     public static void playListAddFrameMaker(MouseEvent me, File file) {
         //mainFrame-------------------------------------------------------------
         playListAddFrame = new JFrame();
+//        playListAddFrame.pack();
         playListAddFrame.setUndecorated(true);
         playListAddFrame.setSize(150, 200);
         playListAddFrame.setLocation(me.getX(), me.getY());
@@ -207,6 +208,8 @@ public class MainWindow {
         panel.add(label);
         //list------------------------------------------------------------------
         JList list = new JList(MainWindow.left.gPlayLists.showerList.getModel());
+        list.setBackground(Colors.getDown());
+        list.setForeground(Colors.getText1());
         list.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -239,6 +242,15 @@ public class MainWindow {
             }
         }
     }
+
+    /**
+     * method for changing theme and color
+     * @param darknes
+     * @param color
+     * @throws InvalidDataException
+     * @throws IOException
+     * @throws UnsupportedTagException
+     */
     public static void refreshColors(String darknes,String color) throws InvalidDataException, IOException, UnsupportedTagException {
         mainFrame.setVisible(false);
         Colors.setColors(darknes,color);

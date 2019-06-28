@@ -40,8 +40,14 @@ public class PlayBar extends JPanel {
     Timer timer;
     TimerTask task;
 
+    /**
+     * PlayBar Structure
+     * @throws InvalidDataException
+     * @throws IOException
+     * @throws UnsupportedTagException
+     */
     public PlayBar() throws InvalidDataException, IOException, UnsupportedTagException {
-
+        //some settings----------------------------------------
         this.setBackground(Colors.getDown());
         this.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -82,11 +88,7 @@ public class PlayBar extends JPanel {
         c.gridx = 3;
         this.add(previous, c);
         previous.addActionListener(handler);
-        //play and pause container-----------------------------
-//        cardLayout = new CardLayout(1, 1);
-//        playPausePanel.setLayout(cardLayout);
         //play-------------------------------------------------
-//        play=new JButton();
         if (MainWindow.player == null || MainWindow.player.getPlayerStatus() == 2)
             play.setText("▶️");
         else if (MainWindow.player.getPlayerStatus() == 1)
@@ -115,7 +117,6 @@ public class PlayBar extends JPanel {
 
         //repeat-----------------------------------------------
         JButton repeat = new JButton("\uD83D\uDD01");
-//        repeat.setIcon(Colors.getRepeatIcon());
         repeat.setFont(new Font("B Nahar", Font.PLAIN, 20));
         repeat.setBorderPainted(false);
         repeat.setFocusPainted(false);
@@ -175,6 +176,7 @@ public class PlayBar extends JPanel {
         c.gridx = 1;
         c.ipadx = 350;
         c.ipady = 5;
+        //progressBar mouseListener for changing its value
         progressBar.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 MainWindow.player.getPlayer().close();
@@ -222,6 +224,13 @@ public class PlayBar extends JPanel {
         this.add(wholeTime, c);
     }
 
+    /**
+     * resizes an image
+     * @param imageIcon
+     * @param width
+     * @param height
+     * @return
+     */
     public static ImageIcon resizeImageIcon(ImageIcon imageIcon, Integer width, Integer height) {
         BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TRANSLUCENT);
         Graphics2D graphics2D = bufferedImage.createGraphics();
@@ -232,11 +241,13 @@ public class PlayBar extends JPanel {
 
     }
 
-
     public static int getIndex() {
         return index;
     }
 
+    /**
+     * handling actions for buttons
+     */
     private class Handle implements ActionListener {
         ///////////////////////////////////////////////////////-+-*-+-\\
         @Override

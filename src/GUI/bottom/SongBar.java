@@ -117,34 +117,24 @@ public class SongBar extends JPanel {
         //heart----------------------------------------------------------------
         heart.setBackground(Colors.getDown());
         heart.setPreferredSize(new Dimension(20, 0));
-        CardLayout card = new CardLayout();
-        heart.setLayout(card);
-        //brokenHeart-------------
-        JLabel brokenHeartButton = new JLabel("\uD83D\uDC94");
-        brokenHeartButton.setBackground(Colors.getDown());
-        brokenHeartButton.setForeground(Colors.getText2());
-        brokenHeartButton.addMouseListener(new MouseAdapter() {
+        JLabel heartLabel = new JLabel("\uD83D\uDC94");
+        heartLabel.setBackground(Colors.getDown());
+        heartLabel.setForeground(Colors.getText2());
+        heartLabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                card.next(heart);
+                if (heartLabel.getText().equals("\uD83D\uDC94")){
+                    heartLabel.setFont(new Font("B Nahar", Font.PLAIN, 18));
+                    heartLabel.setText("♥");
+
+                }else if (heartLabel.getText().equals("♥")){
+                    heartLabel.setFont(new Font("B Nahar", Font.PLAIN, 15));
+                    heartLabel.setText("\uD83D\uDC94");
+                }
             }
 
         });
-        heart.add("a", brokenHeartButton);
-        //heart-------------------
-        JLabel heartButton = new JLabel("♥");
-        heartButton.setBackground(Colors.getDown());
-        heartButton.setForeground(Colors.getText2());
-        heartButton.setFont(new Font("B Nahar", Font.PLAIN, 18));
-        heartButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                card.next(heart);
-            }
-
-        });
-        heart.add("b", heartButton);
-//        }
+        heart.add(heartLabel);
         //add------------------------------------------------------------------
         this.add(imagePlace);
         this.add(artistSong);

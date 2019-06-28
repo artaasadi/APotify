@@ -32,6 +32,7 @@ public class APlayLists {
     public int getIndex(File file){
         return files.indexOf(file);
     }
+
     public void removeSong(File file) {
         files.remove(file);
     }
