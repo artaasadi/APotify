@@ -349,7 +349,7 @@ public class Center extends JPanel {
                     @Override
                     public void mouseClicked(MouseEvent e) {
                         try {
-                            MainWindow.changeCenter(new Center(album));
+                            Albums.resolvingSickProblem(album);
                         } catch (InvalidDataException e1) {
                             e1.printStackTrace();
                         } catch (IOException e1) {

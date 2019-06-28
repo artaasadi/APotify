@@ -1,6 +1,7 @@
 package logic;
 
 import GUI.MainWindow;
+import GUI.centerModes.Center;
 import com.mpatric.mp3agic.ID3v1;
 import com.mpatric.mp3agic.InvalidDataException;
 import com.mpatric.mp3agic.Mp3File;
@@ -49,5 +50,9 @@ public class Albums {
 
     public static HashMap<String, APlayLists> getAlbums() {
         return albums;
+    }
+
+    public static void resolvingSickProblem(APlayLists aPlayLists) throws InvalidDataException, IOException, UnsupportedTagException {
+        MainWindow.changeCenter(new Center(aPlayLists));
     }
 }
