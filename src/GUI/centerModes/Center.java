@@ -12,6 +12,8 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -32,6 +34,7 @@ public class Center extends JPanel {
     private static HashMap<Integer, String> playListIndexHashmap = new HashMap<>();
     private int i;
     private JScrollPane scroll;
+    private String colorSet,themeSet;
 
     /**
      * structure for Center in default mode
@@ -214,6 +217,10 @@ public class Center extends JPanel {
         this.add(scroll);
     }
 
+    /**
+     * setting panel
+     * @param f to understand its setting
+     */
     public Center(float f) {
         System.out.println("run");
         wallpaper = Colors.getWallpaper();
@@ -233,20 +240,26 @@ public class Center extends JPanel {
         c.gridy = 1;
         c.weightx = 0.5;
         c.weighty = 0.5;
-        JPanel roseGoldPanel = makePanel2("ROSE GOLD", "\uD83D\uDD36", new Color(140, 80, 83));
+        JPanel roseGoldPanel = makePanel2("rose gold", "\uD83D\uDD36", new Color(140, 80, 83));
         mainP.add(roseGoldPanel, c);
         c.gridx = 1;
         c.gridy = 1;
         c.weightx = 0.5;
         c.weighty = 0.5;
-        JPanel goldPanel = makePanel2("GOLD", "\uD83D\uDD36", new Color(200, 170, 130));
+        JPanel goldPanel = makePanel2("gold", "\uD83D\uDD36", new Color(200, 170, 130));
         mainP.add(goldPanel, c);
         c.gridx = 0;
         c.gridy = 2;
         c.weightx = 0.5;
         c.weighty = 0.5;
-        JPanel green = makePanel2("GREEN", "\uD83D\uDD36", new Color(125, 160, 124));
+        JPanel green = makePanel2("green", "\uD83D\uDD36", new Color(125, 160, 124));
         mainP.add(green, c);
+        c.gridx = 1;
+        c.gridy = 2;
+        c.weightx = 0.5;
+        c.weighty = 0.5;
+        JPanel purple = makePanel2("purple", "\uD83D\uDD36", new Color(140, 100, 140));
+        mainP.add(purple, c);
         Label playlistLabel = new Label("__________________THEME__________________");
         playlistLabel.setForeground(Colors.getText2());
         playlistLabel.setBackground(Colors.getLeft());
@@ -261,12 +274,36 @@ public class Center extends JPanel {
         c.gridy = 4;
         c.weightx = 0.5;
         c.weighty = 0.5;
-        mainP.add(makePanel2("DARK", "\uD83D\uDC64", new Color(40, 40, 40)), c);
+        mainP.add(makePanel2("dark", "\uD83D\uDC64", new Color(40, 40, 40)), c);
         c.gridx = 1;
         c.gridy = 4;
         c.weightx = 0.5;
         c.weighty = 0.5;
-        mainP.add(makePanel2("LIGHT", "\uD83D\uDC64", new Color(196, 205, 207)), c);
+        mainP.add(makePanel2("light", "\uD83D\uDC64", new Color(196, 205, 207)), c);
+        Button setButton = new Button("                  SET                  ");
+        setButton.setForeground(Colors.getText2());
+        setButton.setBackground(Colors.getLeft());
+        setButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    MainWindow.refreshColors(themeSet,colorSet);
+                    System.out.println(themeSet+"   "+colorSet);
+                } catch (InvalidDataException e1) {
+                    e1.printStackTrace();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                } catch (UnsupportedTagException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
+        c.gridy = 5;
+        c.gridx = 0;
+        c.gridwidth = 2;
+        c.weightx = 1;
+        c.weighty = 1;
+        mainP.add(setButton, c);
         this.add(mainP);
     }
 
@@ -391,6 +428,16 @@ public class Center extends JPanel {
         emoji.setForeground(color);
         emoji.setPreferredSize(new Dimension(150, 150));
         panel.add(emoji);
+        panel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (s.equals("gold") || s.equals("rose gold") || s.equals("green") || s.equals("blue") || s.equals("purple")) {
+                    colorSet=s;
+                }else {
+                    themeSet=s;
+                }
+            }
+        });
         return panel;
     }
 

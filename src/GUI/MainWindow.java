@@ -239,6 +239,36 @@ public class MainWindow {
             }
         }
     }
-
+    public static void refreshColors(String darknes,String color) throws InvalidDataException, IOException, UnsupportedTagException {
+        mainFrame.setVisible(false);
+        Colors.setColors(darknes,color);
+        //TopBorder---------------------------------------------------------
+        mainFrame=new JFrame();
+        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
+        mainFrame.setSize(screensize.width, screensize.height);
+        mainFrame.setTitle("APotify");
+        ImageIcon imageIcon = new ImageIcon("resources/icon1.png");
+        mainFrame.setIconImage(imageIcon.getImage());
+        mainFrame.setLayout(layout);
+        topPanel = new Top();
+        mainFrame.add(topPanel, BorderLayout.NORTH);
+        //Bottom------------------------------------------------------------
+        bottom = new Bottom();
+        mainFrame.add(bottom, BorderLayout.SOUTH);
+        //Left--------------------------------------------------------------
+        left = new Left();
+        mainFrame.add(left, BorderLayout.WEST);
+        //Right-------------------------------------------------------------
+        right = new Right();
+        mainFrame.add(right, BorderLayout.EAST);
+        //Center------------------------------------------------------------
+        center = new Center();
+        mainFrame.add(center, BorderLayout.CENTER);
+        //visibility---------------------------------------------------------
+        mainFrame.repaint();
+        mainFrame.revalidate();
+        mainFrame.setVisible(true);
+    }
 
 }
