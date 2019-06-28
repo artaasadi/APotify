@@ -30,7 +30,7 @@ public class HomeAndSetting extends JPanel {
                 if (index >= 0) {
                     Object o = theList.getModel().getElementAt(index);
                     if (o.toString() == "\uD83C\uDFE0 Home") {
-                        MainWindow.changeCenter(new Center((float) 1));
+                        MainWindow.changeCenter(new Center());
                         System.out.println("home");
                     }else if (o.toString()=="⚙️ Settings"){
                         System.out.println("setting");

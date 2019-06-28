@@ -40,10 +40,10 @@ public class Center extends JPanel {
      * @throws IOException
      * @throws UnsupportedTagException
      */
-    public Center() {
-        this.setBackground(Colors.getCenter());
-        wallpaper = Colors.getWallpaper();
-    }
+//    public Center() {
+//        this.setBackground(Colors.getCenter());
+//        wallpaper = Colors.getWallpaper();
+//    }
 
     /**
      * structure for Center in Songs mode
@@ -147,7 +147,7 @@ public class Center extends JPanel {
      * structure for setting
      * @param f
      */
-    public Center(float f){
+    public Center(){
         System.out.println("run");
         wallpaper = Colors.getWallpaper();
         Label libraryLabel=new Label("__________________LIBRARY__________________");
