@@ -166,17 +166,17 @@ public class Center extends JPanel {
         c.gridy=1;
         c.weightx=0.5;
         c.weighty=0.5;
-        this.add(makePanel2("Albums"),c);
+        this.add(makePanel2("Albums","\uD83D\uDCBF"),c);
         c.gridx=1;
         c.gridy=1;
         c.weightx=0.5;
         c.weighty=0.5;
-        this.add(makePanel2("Songs"),c);
+        this.add(makePanel2("Songs","\uD83C\uDFB5"),c);
         c.gridx=0;
         c.gridy=2;
         c.weightx=0.5;
         c.weighty=0.5;
-        this.add(makePanel2("Favorite"),c);
+        this.add(makePanel2("Favorite","❤"),c);
         Label playlistLabel=new Label("__________________PLAYLISTS__________________");
         playlistLabel.setForeground(Colors.getText2());
         playlistLabel.setBackground(Colors.getLeft());
@@ -191,12 +191,12 @@ public class Center extends JPanel {
         c.gridy=4;
         c.weightx=0.5;
         c.weighty=0.5;
-        this.add(makePanel2("arta1"),c);
+        this.add(makePanel2("arta1","\uD83D\uDC64"),c);
         c.gridx=1;
         c.gridy=4;
         c.weightx=0.5;
         c.weighty=0.5;
-        this.add(makePanel2("arta2"),c);
+        this.add(makePanel2("arta2","\uD83D\uDC64"),c);
     }
 
     public static PauseablePlayer getPlayer() {
@@ -205,7 +205,6 @@ public class Center extends JPanel {
 
     /**
      * a private method to make JPanel for every song
-     *
      * @param s song name
      * @return JPanel
      * @throws InvalidDataException
@@ -293,15 +292,32 @@ public class Center extends JPanel {
         songInfo.setPreferredSize(new Dimension(0, 100));
         return songInfo;
     }
-    private JPanel makePanel2(String s){
+
+    /**
+     * making panels mode 2
+     * @param s
+     * @return panel
+     */
+    private JPanel makePanel2(String s,String e){
+        //panel----------------------------------------------------------
         JPanel panel = new JPanel();
-        JLabel name = new JLabel(s);
-        panel.add(name);
         panel.setBackground(new Color(225, 225, 225, 20));
-        name.setForeground(Colors.getText1());
         Border border = BorderFactory.createLineBorder(Colors.getLeft());
         panel.setBorder(border);
         panel.setPreferredSize(new Dimension(300, 200));
+        panel.setLayout(new GridLayout(2,1));
+        //name-----------------------------------------------------------
+        JLabel name = new JLabel(s);
+        name.setHorizontalAlignment(SwingConstants.CENTER);
+        name.setForeground(Colors.getText1());
+        panel.add(name);
+        //emoji----------------------------------------------------------
+        JLabel emoji=new JLabel(e);
+        emoji.setHorizontalAlignment(SwingConstants.CENTER);
+        emoji.setFont(new Font("B Nahar",Font.PLAIN,95));
+        emoji.setForeground(Colors.getText2());
+        emoji.setPreferredSize(new Dimension(150,150));
+        panel.add(emoji);
         return panel;
     }
     /**
