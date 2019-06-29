@@ -6,6 +6,7 @@ import GUI.left.Libraries;
 import GUI.theme.Colors;
 import GUI.theme.ManualScrollBar;
 import com.mpatric.mp3agic.*;
+import javazoom.jl.decoder.JavaLayerException;
 import logic.APlayLists;
 import logic.AlbumsAndArtists;
 import logic.PauseablePlayer;
@@ -322,6 +323,8 @@ public class Center extends JPanel {
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 } catch (UnsupportedTagException e1) {
+                    e1.printStackTrace();
+                } catch (JavaLayerException e1) {
                     e1.printStackTrace();
                 }
             }

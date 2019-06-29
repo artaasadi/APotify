@@ -5,8 +5,10 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server extends Thread {
-    private static String friendName=null;
+    private static String friendName = null;
     private ServerSocket ss;
+    private static String in;
+    private static boolean isFinished = false;
 
     public Server(int port) {
         try {
@@ -29,11 +31,12 @@ public class Server extends Thread {
 
     private void saveFile(Socket clientSock) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(clientSock.getInputStream()));
-        String in = br.readLine();
+        in = br.readLine();
         int bytes = Integer.parseInt(br.readLine());
         friendName = br.readLine();
         DataInputStream dis = new DataInputStream(clientSock.getInputStream());
         FileOutputStream fos = new FileOutputStream(in.concat(".mp3"));
+        in = in.concat(".mp3");
         byte[] buffer = new byte[bytes];
 
         int filesize = bytes; // Send file size in separate msg
@@ -46,17 +49,25 @@ public class Server extends Thread {
             System.out.println("read " + totalRead + " bytes.");
             fos.write(buffer, 0, read);
         }
-
+        isFinished = true;
         fos.close();
         dis.close();
     }
 
-    public static void main(String[] args) {
-        Server fs = new Server(1988);
-        fs.start();
-    }
+//    public static void main(String[] args) {
+//        Server fs = new Server(1988);
+//        fs.start();
+//    }
 
     public static String getFriendName() {
         return friendName;
+    }
+
+    public static String getIn() {
+        return in;
+    }
+
+    public static boolean isIsFinished() {
+        return isFinished;
     }
 }

@@ -9,6 +9,7 @@ import GUI.theme.Colors;
 import GUI.theme.ManualScrollBar;
 import com.mpatric.mp3agic.InvalidDataException;
 import com.mpatric.mp3agic.UnsupportedTagException;
+import javazoom.jl.decoder.JavaLayerException;
 import logic.APlayLists;
 import logic.PauseablePlayer;
 
@@ -37,7 +38,7 @@ public class MainWindow {
     private static JFrame playListAddFrame;
     private static String userName;
 
-    public static void main(String[] args) throws IOException, InvalidDataException, UnsupportedTagException {
+    public static void main(String[] args) throws IOException, InvalidDataException, UnsupportedTagException, JavaLayerException {
         //theme------------------------------------------------------------
         Colors.setColors("light", "rose gold");
         //welcomeFrame--------------------------------------------------------------------------------------------------
@@ -310,7 +311,7 @@ public class MainWindow {
      * @throws IOException
      * @throws UnsupportedTagException
      */
-    public static void refreshColors(String darknes, String color) throws InvalidDataException, IOException, UnsupportedTagException {
+    public static void refreshColors(String darknes, String color) throws InvalidDataException, IOException, UnsupportedTagException, JavaLayerException {
         mainFrame.setVisible(false);
         Colors.setColors(darknes, color);
         //TopBorder---------------------------------------------------------
@@ -351,12 +352,10 @@ public class MainWindow {
         return userName;
     }
 
-    public static void rightRefresh() {
-        right.revalidate();
-        right.repaint();
-        mainFrame.add(right, BorderLayout.WEST);
-        mainFrame.repaint();
-        mainFrame.revalidate();
+    public static void rightRefresh() throws InvalidDataException, IOException, UnsupportedTagException, JavaLayerException {
+        mainFrame.remove(right);
+        right = new Right();
+        mainFrame.add(right, BorderLayout.EAST);
         mainFrame.setVisible(true);
     }
 }

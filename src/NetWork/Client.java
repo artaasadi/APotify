@@ -42,8 +42,8 @@ public class Client {
         dos.close();
     }
 
-    public static void main(String[] args) {
-        Client fc = new Client("localhost", 1988, "Over_the_Horizon.mp3");
-    }
+//    public static void main(String[] args) {
+//        Client fc = new Client("localhost", 1988, "Over_the_Horizon.mp3");
+//    }
 
 }
