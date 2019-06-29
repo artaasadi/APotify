@@ -21,7 +21,7 @@ public class PlayedTimeClass extends TimerTask {
 
     @Override
     public void run() {
-        player.play(start, song.getFrameCount());
+       // player.play(start, song.getFrameCount());
         String value = String.format("%02d : %02d\n", (((player.getPlayer().getAudio().getPosition() + (start * 26)) / 1000) / 60), (((player.getPlayer().getAudio().getPosition() + (start * 26)) / 1000) % 60));
         PlayBar.progressBar.setValue(((player.getPlayer().getAudio().getPosition() + (start * 26))));
         PlayBar.playedTime.setText(value);
