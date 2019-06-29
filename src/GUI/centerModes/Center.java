@@ -564,7 +564,7 @@ public class Center extends JPanel {
     }
 
     public static String getSongName() {
-        return songName;
+        return indexHashmap.get(index);
     }
 
     /**
@@ -574,5 +574,9 @@ public class Center extends JPanel {
      */
     public void setWallpaper(BufferedImage image) {
         wallpaper = image;
+    }
+
+    public String getNameByIndex(int index){
+        return indexHashmap.get(index);
     }
 }

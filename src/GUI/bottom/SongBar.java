@@ -37,7 +37,7 @@ public class SongBar extends JPanel {
         ID3v1 info1 = null;
         ID3v2 info2 = null;
         if (MainWindow.player != null) {
-            song = new Mp3File(Libraries.getFilesVIAid().get(Center.getIndex()));
+            song = new Mp3File(Libraries.getInformation().get(Center.getIndexHashmap().get(Center.getIndex())));
             if (song.hasId3v1Tag())
                 info1 = song.getId3v1Tag();
             if (song.hasId3v2Tag())
