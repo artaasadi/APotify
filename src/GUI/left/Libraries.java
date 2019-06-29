@@ -30,7 +30,7 @@ public class Libraries extends JPanel {
     private static HashMap<File, Integer> indexes = new HashMap<>();
     private static HashMap<PushbackReader, Mp3File> tags;
     private static ArrayList<String> names = new ArrayList<>();
-
+    private static FileSaver data=new FileSaver("all musics");
     public Libraries() {
         this.setBackground(Colors.getLeft());
         //Label-------------------------------------------------------------
@@ -140,6 +140,11 @@ public class Libraries extends JPanel {
             if (command.equals("+")) {
                 fileReader = new FileReader();
                 for (int i = 0; i < fileReader.getFiles().size(); i++) {
+                    try {
+                        data.addMusic(fileReader.getFile()[i].getAbsolutePath());
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                     files.add(fileReader.getFile()[i]);
                     information.put(fileReader.getFile()[i].getName(), fileReader.getFile()[i]);
                     indexes.put(fileReader.getFile()[i], i);
@@ -158,6 +163,23 @@ public class Libraries extends JPanel {
                     e1.printStackTrace();
                 }
             }
+        }
+    }
+
+    public static FileSaver getData() {
+        return data;
+    }
+
+    public static void savedFilesMaker(ArrayList<String > paths){
+        int i=0;
+        for (String s:paths) {
+            File f=new File(s);
+            files.add(f);
+            information.put(f.getName(), f);
+            indexes.put(f, i);
+            filesVIAid.put(i, f);
+            names.add(f.getName());
+            i++;
         }
     }
 }

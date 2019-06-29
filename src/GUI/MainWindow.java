@@ -4,6 +4,7 @@ import GUI.bottom.Bottom;
 import GUI.centerModes.Center;
 import GUI.left.GPlayLists;
 import GUI.left.Left;
+import GUI.left.Libraries;
 import GUI.theme.Colors;
 import GUI.theme.ManualScrollBar;
 import com.mpatric.mp3agic.InvalidDataException;
@@ -20,6 +21,7 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MainWindow {
 
@@ -89,6 +91,9 @@ public class MainWindow {
         mp.add(loginButton);
         //***
         welcomeFrame.add(mp);
+        ArrayList<String> songsPaths = Libraries.getData().readFile();
+        Libraries.savedFilesMaker(songsPaths);
+
         welcomeFrame.setVisible(true);
         //mainFrame-----------------------------------------------------------------------------------------------------
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

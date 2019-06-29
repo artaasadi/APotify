@@ -4,12 +4,12 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class FileSaver {
-    FileSaver myfile;
+    File myfile;
     ArrayList<String> path;
     static int i = 0;
 
     public FileSaver(String filename) {
-        myfile = new FileSaver(filename + ".bin");
+        myfile = new File(filename + ".bin");
         path = new ArrayList<>();
 
     }
