@@ -274,9 +274,12 @@ public class PlayBar extends JPanel {
                 }
             } else if (command.contains("\u23F8️")) {
                 play.setText("▶️");
-                boolean b = false;
-                if (MainWindow.player != null)
+                boolean b;
+                if (MainWindow.player != null) {
                     b = MainWindow.player.pause();
+                    System.out.println(b);
+                }
+
             }
             //shuffleAction----------------------------------------
             else if (command.contains("\uD83D\uDD00")) {
@@ -291,10 +294,10 @@ public class PlayBar extends JPanel {
                     index++;
                     Center.setSongName(Center.getIndexHashmap().get(Center.getIndex()));
                     try {
-                        String name = Center.getSongName();
+                        String name = Center.getIndexHashmap().get(Center.getIndex());
                         FileInputStream stream = new FileInputStream(Libraries.getInformation().get(name));
                         MainWindow.player = new PauseablePlayer(stream);
-                        MainWindow.player.play(0, new Mp3File(Libraries.getFilesVIAid().get(index)).getFrameCount());
+                        MainWindow.player.play(0, new Mp3File(Libraries.getInformation().get(Center.getIndexHashmap().get(Center.getIndex()))).getFrameCount());
                         if (play.getText().equals("▶️"))
                             play.setText("\u23F8️");
                     } catch (JavaLayerException | UnsupportedTagException | InvalidDataException e1) {

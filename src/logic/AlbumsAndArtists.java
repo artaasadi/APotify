@@ -29,6 +29,7 @@ public class AlbumsAndArtists {
                 ID3v1 tag = info.getId3v1Tag();
                 if (!albums.containsKey(tag.getAlbum())) {
                     APlayLists playLists = new APlayLists(tag.getAlbum());
+                    playLists.setAlbumOrArtist(true);
                     for (File file1 : MainWindow.left.libraries.getFiles()) {
                         Mp3File info2 = new Mp3File(file1);
                         if (info2.hasId3v1Tag()) {
@@ -58,6 +59,7 @@ public class AlbumsAndArtists {
                 ID3v1 tag = info.getId3v1Tag();
                 if (!artists.containsKey(tag.getArtist())) {
                     APlayLists playLists = new APlayLists(tag.getArtist());
+                    playLists.setAlbumOrArtist(true);
                     for (File file1 : MainWindow.left.libraries.getFiles()) {
                         Mp3File info2 = new Mp3File(file1);
                         if (info2.hasId3v1Tag()) {

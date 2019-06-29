@@ -9,6 +9,7 @@ public class APlayLists {
     private ArrayList<File> files = new ArrayList<>();
     private boolean isChangeable;
     private boolean isRemoveable;
+    private boolean isAlbumOrArtist = false;
 
     public APlayLists(String name) {
         if (name.equals("Favorite") || name.equals("Shared")) {
@@ -72,5 +73,13 @@ public class APlayLists {
 
     public String getName() {
         return name;
+    }
+
+    public boolean isAlbumOrArtist() {
+        return isAlbumOrArtist;
+    }
+
+    public void setAlbumOrArtist(boolean albumOrArtist) {
+        isAlbumOrArtist = albumOrArtist;
     }
 }

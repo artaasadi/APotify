@@ -121,15 +121,19 @@ public class Center extends JPanel {
                         songName = name;
                         index = aPlayLists.getIndex(file);
                     } else if (me.getButton() == MouseEvent.BUTTON3) {
-                        aPlayLists.removeSong(file);
-                        try {
-                            MainWindow.changeCenter(new Center(aPlayLists));
-                        } catch (InvalidDataException e) {
-                            e.printStackTrace();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        } catch (UnsupportedTagException e) {
-                            e.printStackTrace();
+                        if (!aPlayLists.isAlbumOrArtist()){
+                            aPlayLists.removeSong(file);
+                            try {
+                                MainWindow.changeCenter(new Center(aPlayLists));
+                            } catch (InvalidDataException e) {
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            } catch (UnsupportedTagException e) {
+                                e.printStackTrace();
+                            }
+                        }else {
+                            MainWindow.playListAddFrameMaker(me, file);
                         }
                     }
                 }
