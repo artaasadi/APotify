@@ -348,7 +348,7 @@ public class Converter
 			if ((frameNo==0) && isDetail(VERBOSE_DETAIL))
 			{
 				String headerString = header.toString();
-				pw.println("File is a "+headerString);
+				pw.println("FileSaver is a "+headerString);
 			}
 			else if (isDetail(MAX_DETAIL))
 			{
@@ -362,7 +362,7 @@ public class Converter
 			if ((frameNo==0) && isDetail(VERBOSE_DETAIL))
 			{
 				String headerString = header.toString();
-				pw.println("File is a "+headerString);
+				pw.println("FileSaver is a "+headerString);
 			}
 			else if (isDetail(MAX_DETAIL))
 			{

@@ -14,23 +14,24 @@ public class Right extends JPanel {
     private static JLabel userName;
     private static JPanel songBar;
     private static JList sharedList;
+
     public Right() throws InvalidDataException, IOException, UnsupportedTagException {
         this.setBackground(Colors.getRight());
         this.setPreferredSize(new Dimension(200, 0));
         //UserNameLabel----------------------------------------------------
-        this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
-        userName=new JLabel("aava");
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        userName = new JLabel("aava");
         userName.setBackground(Colors.getRight());
         userName.setForeground(Colors.getText2());
         this.add(userName);
         //SongBarShowingFriendsCurrentMusicPlaying-------------------------
-        songBar=new SongBar(null,true);
-        songBar.setMaximumSize(new Dimension(180,90));
+        songBar = new SongBar(null, true);
+        songBar.setMaximumSize(new Dimension(180, 90));
         this.add(songBar);
         //sharedListShowingFriendsSharedList-------------------------------
-        String s[]={"aa","qq","pp","oo","ww","aa","qq","pp","oo","ww","aa","qq","pp","oo","ww","aa","qq","pp","oo","ww","aa","qq","pp","oo","ww","aa","qq","pp","oo","ww"};
-        sharedList=new JList(s);
-        sharedList.setMaximumSize(new Dimension(180,50));
+        String s[] = {"aa", "qq", "pp", "oo", "ww", "aa", "qq", "pp", "oo", "ww", "aa", "qq", "pp", "oo", "ww", "aa", "qq", "pp", "oo", "ww", "aa", "qq", "pp", "oo", "ww", "aa", "qq", "pp", "oo", "ww"};
+        sharedList = new JList(s);
+        sharedList.setMaximumSize(new Dimension(180, 50));
         sharedList.setFont(new Font("A Nahar", Font.ITALIC, 15));
         sharedList.setSelectionForeground(Colors.getText2());
         sharedList.setSelectionBackground(Colors.getLeft());

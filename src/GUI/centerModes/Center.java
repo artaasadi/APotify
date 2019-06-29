@@ -1,6 +1,7 @@
 package GUI.centerModes;
 
 import GUI.MainWindow;
+import GUI.left.GPlayLists;
 import GUI.left.Libraries;
 import GUI.theme.Colors;
 import GUI.theme.ManualScrollBar;
@@ -31,6 +32,7 @@ public class Center extends JPanel {
     private static String songName;
     private static BufferedImage wallpaper;
     private static HashMap<Integer, String> indexHashmap = new HashMap<>();
+    private static HashMap<String, Integer> stringIntegerHashMap = new HashMap<>();
     private static HashMap<Integer, String> songsIndextHashmap = new HashMap<>();
     private static HashMap<Integer, String> playListIndexHashmap = new HashMap<>();
     private static HashMap<Integer, String> searchIndexHashmap = new HashMap<>();
@@ -55,7 +57,7 @@ public class Center extends JPanel {
                 g.drawImage(wallpaper, 0, 0, this); // see javadoc for more info on the parameters
             }
         };
-        mainP.setBackground(new Color(0,0,0,0));
+        mainP.setBackground(new Color(0, 0, 0, 0));
         mainP.setLayout(new BoxLayout(mainP, BoxLayout.Y_AXIS));
         this.setLayout(new BorderLayout());
         for (i = 0; i < Libraries.getFiles().size(); i++) {
@@ -97,6 +99,7 @@ public class Center extends JPanel {
      * @throws UnsupportedTagException
      */
     public Center(APlayLists aPlayLists) throws InvalidDataException, IOException, UnsupportedTagException {
+        GPlayLists.setCurrentPlayList(aPlayLists);
         wallpaper = Colors.getWallpaper();
         JPanel mainP = new JPanel() {
             @Override
@@ -105,7 +108,7 @@ public class Center extends JPanel {
                 g.drawImage(wallpaper, 0, 0, this); // see javadoc for more info on the parameters
             }
         };
-        mainP.setBackground(new Color(0,0,0,0));
+        mainP.setBackground(new Color(0, 0, 0, 0));
         mainP.setLayout(new BoxLayout(mainP, BoxLayout.Y_AXIS));
         this.setLayout(new BorderLayout());
         for (i = 0; i < aPlayLists.getFiles().size(); i++) {
@@ -121,7 +124,7 @@ public class Center extends JPanel {
                         songName = name;
                         index = aPlayLists.getIndex(file);
                     } else if (me.getButton() == MouseEvent.BUTTON3) {
-                        if (!aPlayLists.isAlbumOrArtist()){
+                        if (!aPlayLists.isAlbumOrArtist()) {
                             aPlayLists.removeSong(file);
                             try {
                                 MainWindow.changeCenter(new Center(aPlayLists));
@@ -132,7 +135,7 @@ public class Center extends JPanel {
                             } catch (UnsupportedTagException e) {
                                 e.printStackTrace();
                             }
-                        }else {
+                        } else {
                             MainWindow.playListAddFrameMaker(me, file);
                         }
                     }
@@ -167,7 +170,7 @@ public class Center extends JPanel {
             }
         };
         this.setLayout(new BorderLayout());
-        mainP.setBackground(new Color(20, 20, 20,100));
+        mainP.setBackground(new Color(20, 20, 20, 100));
         mainP.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         c.gridy = 0;
@@ -248,7 +251,7 @@ public class Center extends JPanel {
             }
         };
         this.setLayout(new BorderLayout());
-        mainP.setBackground(new Color(0,0,0,0));
+        mainP.setBackground(new Color(0, 0, 0, 0));
         mainP.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         c.gridy = 0;
@@ -280,8 +283,8 @@ public class Center extends JPanel {
         c.weighty = 0.5;
         JPanel purple = makePanel2("purple", "\uD83D\uDD36", new Color(140, 100, 140));
         mainP.add(purple, c);
-        c.gridy=3;
-        c.gridx=0;
+        c.gridy = 3;
+        c.gridx = 0;
         c.weightx = 0.5;
         c.weighty = 0.5;
         JPanel blue = makePanel2("blue", "\uD83D\uDD36", new Color(130, 180, 210));
@@ -567,7 +570,7 @@ public class Center extends JPanel {
         Border border = BorderFactory.createLineBorder(Colors.getLeft());
         panel.setBorder(border);
         panel.setPreferredSize(new Dimension(300, 200));
-        panel.setMaximumSize(new Dimension(300,200));
+        panel.setMaximumSize(new Dimension(300, 200));
         panel.setLayout(new GridLayout(2, 1));
         //name-----------------------------------------------------------
         JLabel name = new JLabel(s);
@@ -586,9 +589,9 @@ public class Center extends JPanel {
             public void mouseClicked(MouseEvent e) {
                 if (s.equals("gold") || s.equals("rose gold") || s.equals("green") || s.equals("blue") || s.equals("purple")) {
                     colorSet = s;
-                } else if (s.equals("dark") || s.equals("light")){
+                } else if (s.equals("dark") || s.equals("light")) {
                     themeSet = s;
-                } else if (s.equals("Songs")){
+                } else if (s.equals("Songs")) {
                     try {
                         MainWindow.changeCenter(new Center(0));
                     } catch (InvalidDataException e1) {
@@ -598,7 +601,7 @@ public class Center extends JPanel {
                     } catch (UnsupportedTagException e1) {
                         e1.printStackTrace();
                     }
-                } else if (s.equals("Albums") || s.equals("Artists")){
+                } else if (s.equals("Albums") || s.equals("Artists")) {
                     try {
                         AlbumsAndArtists.makeArtist();
                         AlbumsAndArtists.makeAlbum();

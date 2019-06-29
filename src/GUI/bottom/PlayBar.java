@@ -18,10 +18,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -39,9 +41,10 @@ public class PlayBar extends JPanel {
     public static JLabel playedTime;
     Timer timer;
     TimerTask task;
-
+    public static Boolean isShuffled=false;
     /**
      * PlayBar Structure
+     *
      * @throws InvalidDataException
      * @throws IOException
      * @throws UnsupportedTagException
@@ -226,6 +229,7 @@ public class PlayBar extends JPanel {
 
     /**
      * resizes an image
+     *
      * @param imageIcon
      * @param width
      * @param height
@@ -283,7 +287,29 @@ public class PlayBar extends JPanel {
             }
             //shuffleAction----------------------------------------
             else if (command.contains("\uD83D\uDD00")) {
-                //needShuffle = true;
+                isShuffled=true;
+                System.out.println(MainWindow.left.gPlayLists.getCurrentPlayList()!=null);
+                File file = MainWindow.left.gPlayLists.getCurrentPlayList().shuffle();
+                for (Map.Entry<Integer,String > entry : Center.getIndexHashmap().entrySet()){
+                    if (entry.getValue().equals(file.getName())){
+                        Center.setIndex(entry.getKey());
+                    }
+                }
+                try {
+                    FileInputStream fileInputStream = new FileInputStream(file);
+                    if (MainWindow.player != null) {
+                        MainWindow.player.getPlayer().close();
+                        MainWindow.player.stop();
+                    }
+                    MainWindow.player = new PauseablePlayer(fileInputStream);
+                    MainWindow.player.play(0,5000);
+                } catch (FileNotFoundException e1) {
+                    e1.printStackTrace();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                } catch (JavaLayerException e1) {
+                    e1.printStackTrace();
+                }
             }
             //nextAction--------------------------------------------
             else if (command.contains("⏭️")) {

@@ -12,6 +12,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -21,6 +22,7 @@ public class GPlayLists extends JPanel {
     public JList showerList;
     public JScrollPane scroll;
     private static APlayLists currentPlayList;
+
     public GPlayLists() {
         this.setBackground(Colors.getLeft());
         this.setPreferredSize(new Dimension(0, 350));
@@ -185,7 +187,11 @@ public class GPlayLists extends JPanel {
                     for (APlayLists aPlayLists : MainWindow.left.gPlayLists.playLists) {
                         if (aPlayLists.getName() == o.toString()) {
                             try {
-                                currentPlayList=aPlayLists;
+//                                currentPlayList = aPlayLists;
+                                currentPlayList=new APlayLists("currentPlayList");
+                                for (File file:aPlayLists.getFiles()) {
+                                    currentPlayList.addSong(file);
+                                }
                                 MainWindow.changeCenter(new Center(aPlayLists));
                             } catch (InvalidDataException e1) {
                                 e1.printStackTrace();
@@ -204,9 +210,14 @@ public class GPlayLists extends JPanel {
 
     /**
      * shows the current playList
+     *
      * @return currentPlayList
      */
-    public static APlayLists getCurrentPlayList() {
+    public APlayLists getCurrentPlayList() {
         return currentPlayList;
+    }
+
+    public static void setCurrentPlayList(APlayLists currentPlayList) {
+        GPlayLists.currentPlayList = currentPlayList;
     }
 }

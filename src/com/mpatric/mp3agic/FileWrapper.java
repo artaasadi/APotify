@@ -35,8 +35,8 @@ public class FileWrapper {
 	}
 
 	private void init() throws IOException {
-		if (!Files.exists(path)) throw new FileNotFoundException("File not found " + path);
-		if (!Files.isReadable(path)) throw new IOException("File not readable");
+		if (!Files.exists(path)) throw new FileNotFoundException("FileSaver not found " + path);
+		if (!Files.isReadable(path)) throw new IOException("FileSaver not readable");
 		length = Files.size(path);
 		lastModified = Files.getLastModifiedTime(path).to(TimeUnit.MILLISECONDS);
 	}

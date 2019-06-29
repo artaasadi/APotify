@@ -30,7 +30,7 @@ public class SongBar extends JPanel {
      * @throws IOException
      * @throws UnsupportedTagException
      */
-    public SongBar(File file,Boolean isRight) throws InvalidDataException, IOException, UnsupportedTagException {
+    public SongBar(File file, Boolean isRight) throws InvalidDataException, IOException, UnsupportedTagException {
         if (isRight)
             this.setBackground(Colors.getRight());
         else
@@ -83,13 +83,13 @@ public class SongBar extends JPanel {
         else
             artistSong.setBackground(Colors.getDown());
         //songName----------------
-        if (song!=null){
+        if (song != null) {
             if (info1 == null) {
                 songName.setText(Libraries.getInformation().get(Center.getSongName()).getName());
             } else {
                 songName.setText(info1.getTitle());
             }
-        }else {
+        } else {
             songName.setText("Nothing");
         }
         if (isRight)
@@ -134,7 +134,7 @@ public class SongBar extends JPanel {
         artistName.setPreferredSize(new Dimension(100, 42));
         artistSong.add(artistName);
         //heart----------------------------------------------------------------
-        if (isRight==false){
+        if (isRight == false) {
             heart.setBackground(Colors.getDown());
             heart.setPreferredSize(new Dimension(20, 0));
             JLabel heartLabel;
@@ -144,7 +144,7 @@ public class SongBar extends JPanel {
                 } else {
                     heartLabel = new JLabel("\uD83D\uDC94");
                 }
-            }else {
+            } else {
                 heartLabel = new JLabel("\uD83D\uDC94");
             }
             heartLabel.setBackground(Colors.getDown());
@@ -152,12 +152,12 @@ public class SongBar extends JPanel {
             heartLabel.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    if (heartLabel.getText().equals("\uD83D\uDC94")){
+                    if (heartLabel.getText().equals("\uD83D\uDC94")) {
                         heartLabel.setFont(new Font("B Nahar", Font.PLAIN, 18));
                         heartLabel.setText("♥");
                         MainWindow.left.gPlayLists.playLists.get(0).addSong(Libraries.getFilesVIAid().get(Center.getIndex()));
 
-                    }else if (heartLabel.getText().equals("♥")){
+                    } else if (heartLabel.getText().equals("♥")) {
                         heartLabel.setFont(new Font("B Nahar", Font.PLAIN, 15));
                         heartLabel.setText("\uD83D\uDC94");
                         MainWindow.left.gPlayLists.playLists.get(0).removeSong(Libraries.getFilesVIAid().get(Center.getIndex()));

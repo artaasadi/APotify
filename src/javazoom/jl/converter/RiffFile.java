@@ -50,7 +50,7 @@ public class RiffFile
    public static final int	DDC_FILE_ERROR = 3;        // Operation encountered file I/O error
    public static final int	DDC_INVALID_CALL = 4;      // Operation was called with invalid parameters
    public static final int	DDC_USER_ABORT = 5;        // Operation was aborted by the user
-   public static final int	DDC_INVALID_FILE = 6;      // File format does not match
+   public static final int	DDC_INVALID_FILE = 6;      // FileSaver format does not match
    
    // RiffFileMode
    public static final int	RFM_UNKNOWN = 0;      	   // undefined type (can use to mean "N/A" or "not open")
@@ -75,7 +75,7 @@ public class RiffFile
    }
  
    /**
-    * Return File Mode.
+    * Return FileSaver Mode.
 	*/
    public int CurrentFileMode()
    {return fmode;}
@@ -342,7 +342,7 @@ public class RiffFile
    }
    
    /**
-    * Close Riff File.
+    * Close Riff FileSaver.
 	* Length is written too.
 	*/
    public int Close()
@@ -395,7 +395,7 @@ public class RiffFile
    }
 
    /**
-    * Return File Position.
+    * Return FileSaver Position.
 	*/
    public long CurrentFilePosition()
    {
@@ -447,7 +447,7 @@ public class RiffFile
 
 
    /**
-    * Seek in the File.
+    * Seek in the FileSaver.
 	*/
    protected int Seek(long offset)
    {

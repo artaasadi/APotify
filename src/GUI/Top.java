@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class Top extends JPanel {
     static JTextField search;
-    private ArrayList<File> founds =new ArrayList<>();
+    private ArrayList<File> founds = new ArrayList<>();
 
     public Top() {
         //TopBorder
@@ -48,6 +48,7 @@ public class Top extends JPanel {
 
     /**
      * gives founds
+     *
      * @return founds
      */
     public ArrayList<File> getFounds() {
@@ -67,7 +68,7 @@ public class Top extends JPanel {
                     founds.add(Libraries.getInformation().get(tmp));
             }
             try {
-                MainWindow.changeCenter(new Center((double)1));
+                MainWindow.changeCenter(new Center((double) 1));
             } catch (InvalidDataException e1) {
                 e1.printStackTrace();
             } catch (IOException e1) {

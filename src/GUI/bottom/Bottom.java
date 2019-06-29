@@ -22,9 +22,9 @@ public class Bottom extends JPanel {
         this.setLayout(new BorderLayout());
         playBar = new PlayBar();
         if (MainWindow.player != null)
-            songBar = new SongBar(Libraries.getInformation().get(Center.getIndexHashmap().get(Center.getIndex())),false);
+            songBar = new SongBar(Libraries.getInformation().get(Center.getIndexHashmap().get(Center.getIndex())), false);
         else if (MainWindow.player == null)
-            songBar = new SongBar(null,false);
+            songBar = new SongBar(null, false);
         volume = new Volume();
         this.add(songBar, BorderLayout.WEST);
         this.add(playBar, BorderLayout.CENTER);
