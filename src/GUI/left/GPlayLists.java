@@ -20,7 +20,7 @@ public class GPlayLists extends JPanel {
     public ArrayList<APlayLists> playLists = new ArrayList<>();
     public JList showerList;
     public JScrollPane scroll;
-
+    private static APlayLists currentPlayList;
     public GPlayLists() {
         this.setBackground(Colors.getLeft());
         this.setPreferredSize(new Dimension(0, 350));
@@ -185,6 +185,7 @@ public class GPlayLists extends JPanel {
                     for (APlayLists aPlayLists : MainWindow.left.gPlayLists.playLists) {
                         if (aPlayLists.getName() == o.toString()) {
                             try {
+                                currentPlayList=aPlayLists;
                                 MainWindow.changeCenter(new Center(aPlayLists));
                             } catch (InvalidDataException e1) {
                                 e1.printStackTrace();
@@ -199,5 +200,13 @@ public class GPlayLists extends JPanel {
             }
         });
         return showerList;
+    }
+
+    /**
+     * shows the current playList
+     * @return currentPlayList
+     */
+    public static APlayLists getCurrentPlayList() {
+        return currentPlayList;
     }
 }

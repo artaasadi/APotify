@@ -13,6 +13,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
 
 public class SongBar extends JPanel {
@@ -29,7 +30,7 @@ public class SongBar extends JPanel {
      * @throws IOException
      * @throws UnsupportedTagException
      */
-    public SongBar() throws InvalidDataException, IOException, UnsupportedTagException {
+    public SongBar(File file) throws InvalidDataException, IOException, UnsupportedTagException {
         this.setBackground(Colors.getDown());
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         //getting Information--------------------------------------------------
@@ -37,7 +38,7 @@ public class SongBar extends JPanel {
         ID3v1 info1 = null;
         ID3v2 info2 = null;
         if (MainWindow.player != null) {
-            song = new Mp3File(Libraries.getInformation().get(Center.getIndexHashmap().get(Center.getIndex())));
+            song = new Mp3File(file);
             if (song.hasId3v1Tag())
                 info1 = song.getId3v1Tag();
             if (song.hasId3v2Tag())
