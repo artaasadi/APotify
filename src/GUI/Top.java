@@ -37,7 +37,7 @@ public class Top extends JPanel {
         this.add(left);
         //right panel-------------------------------------------------------
         JPanel panel = new JPanel();
-        JLabel userName = new JLabel("arta.2000");
+        JLabel userName = new JLabel(MainWindow.getUserName());
         userName.setBackground(Colors.getTop());
         userName.setForeground(Colors.getText2());
         userName.setFont(new Font("Agency FB", Font.PLAIN, 20));

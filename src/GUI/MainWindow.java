@@ -33,21 +33,69 @@ public class MainWindow {
     private static BufferedImage wallpaper;
     public static Top topPanel;
     private static JFrame playListAddFrame;
+    private static String userName;
 
     public static void main(String[] args) throws IOException, InvalidDataException, UnsupportedTagException {
         //theme------------------------------------------------------------
-        Colors.setColors("dark", "rose gold");
-        //mainFrame--------------------------------------------------------
-        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Colors.setColors("light", "rose gold");
+        //welcomeFrame--------------------------------------------------------------------------------------------------
+        JFrame welcomeFrame = new JFrame();
+        JPanel mp = new JPanel();
+        welcomeFrame.setTitle("APotify");
+        ImageIcon imageIcon = new ImageIcon("resources/icon1.png");
+        welcomeFrame.setIconImage(imageIcon.getImage());
+        welcomeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
+        mp.setBackground(Colors.getDown());
+        welcomeFrame.setSize(screensize.width / 4, screensize.height / 2);
+        welcomeFrame.setLocation(screensize.width * 3 / 8, screensize.height / 4);
+        welcomeFrame.setLayout(new BorderLayout());
+        mp.setLayout(new GridLayout(5, 3, 20, 20));
+        //APotifyLabel-----------------------------------------------------
+        JLabel APotify = new JLabel("APotify");
+        APotify.setFont(new Font("Agency FB", Font.PLAIN, 40));
+        APotify.setHorizontalAlignment(SwingConstants.CENTER);
+        APotify.setBackground(Colors.getCenter());
+        APotify.setForeground(Colors.getText2());
+        mp.add(APotify);
+        //userNameField----------------------------------------------------
+        JTextField userNameField = new JTextField();
+        userNameField.setHorizontalAlignment(SwingConstants.CENTER);
+        userNameField.setBackground(Colors.getCenter());
+        userNameField.setForeground(Colors.getText1());
+        mp.add(userNameField);
+        //passwordField----------------------------------------------------
+        JPasswordField passwordField = new JPasswordField();
+        passwordField.setHorizontalAlignment(SwingConstants.CENTER);
+        passwordField.setBackground(Colors.getCenter());
+        passwordField.setForeground(Colors.getText1());
+        mp.add(passwordField);
+        //loginButton------------------------------------------------------
+        JButton loginButton = new JButton("Login");
+        loginButton.setHorizontalAlignment(SwingConstants.CENTER);
+        loginButton.setBackground(Colors.getCenter());
+        loginButton.setForeground(Colors.getText1());
+        loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                userName = userNameField.getText();
+                welcomeFrame.setVisible(false);
+                //TopBorder---------------------------------------------------------
+                topPanel = new Top();
+                mainFrame.add(topPanel, BorderLayout.NORTH);
+                mainFrame.setVisible(true);
+            }
+        });
+        mp.add(loginButton);
+        //***
+        welcomeFrame.add(mp);
+        welcomeFrame.setVisible(true);
+        //mainFrame-----------------------------------------------------------------------------------------------------
+        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setSize(screensize.width, screensize.height);
         mainFrame.setTitle("APotify");
-        ImageIcon imageIcon = new ImageIcon("resources/icon1.png");
         mainFrame.setIconImage(imageIcon.getImage());
         mainFrame.setLayout(layout);
-        //TopBorder---------------------------------------------------------
-        topPanel = new Top();
-        mainFrame.add(topPanel, BorderLayout.NORTH);
         //Bottom------------------------------------------------------------
         bottom = new Bottom();
         mainFrame.add(bottom, BorderLayout.SOUTH);
@@ -63,7 +111,7 @@ public class MainWindow {
             center = new Center();
         mainFrame.add(center, BorderLayout.CENTER);
         //visibility---------------------------------------------------------
-        mainFrame.setVisible(true);
+//        mainFrame.setVisible(true);
     }
 
     public static PauseablePlayer getPlayer() {
@@ -191,6 +239,7 @@ public class MainWindow {
 
     /**
      * adding songs to gPlayLists
+     *
      * @param file
      * @param me
      */
@@ -235,6 +284,7 @@ public class MainWindow {
 
     /**
      * adding a file to a playList
+     *
      * @param playlistName
      * @param file
      */
@@ -248,17 +298,18 @@ public class MainWindow {
 
     /**
      * method for changing theme and color
+     *
      * @param darknes
      * @param color
      * @throws InvalidDataException
      * @throws IOException
      * @throws UnsupportedTagException
      */
-    public static void refreshColors(String darknes,String color) throws InvalidDataException, IOException, UnsupportedTagException {
+    public static void refreshColors(String darknes, String color) throws InvalidDataException, IOException, UnsupportedTagException {
         mainFrame.setVisible(false);
-        Colors.setColors(darknes,color);
+        Colors.setColors(darknes, color);
         //TopBorder---------------------------------------------------------
-        mainFrame=new JFrame();
+        mainFrame = new JFrame();
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
         mainFrame.setSize(screensize.width, screensize.height);
@@ -286,4 +337,12 @@ public class MainWindow {
         mainFrame.setVisible(true);
     }
 
+    /**
+     * gives the userName that user had been logged in with it
+     *
+     * @return userName
+     */
+    public static String getUserName() {
+        return userName;
+    }
 }
