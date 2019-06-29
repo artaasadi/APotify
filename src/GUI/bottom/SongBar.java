@@ -30,8 +30,11 @@ public class SongBar extends JPanel {
      * @throws IOException
      * @throws UnsupportedTagException
      */
-    public SongBar(File file) throws InvalidDataException, IOException, UnsupportedTagException {
-        this.setBackground(Colors.getDown());
+    public SongBar(File file,Boolean isRight) throws InvalidDataException, IOException, UnsupportedTagException {
+        if (isRight)
+            this.setBackground(Colors.getRight());
+        else
+            this.setBackground(Colors.getDown());
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         //getting Information--------------------------------------------------
         Mp3File song = null;
@@ -69,10 +72,16 @@ public class SongBar extends JPanel {
         imagePanel.setPreferredSize(new Dimension(80, 80));
         imagePanel.setBackground(new Color(0, 0, 0, 0));
         imagePlace.add(imagePanel);
-        imagePlace.setBackground(Colors.getDown());
+        if (isRight)
+            imagePlace.setBackground(Colors.getRight());
+        else
+            imagePlace.setBackground(Colors.getDown());
         //artistSongPanel-----------------------------------------------------------
         artistSong.setLayout(new BoxLayout(artistSong, BoxLayout.Y_AXIS));
-        artistSong.setBackground(Colors.getDown());
+        if (isRight)
+            artistSong.setBackground(Colors.getRight());
+        else
+            artistSong.setBackground(Colors.getDown());
         //songName----------------
         if (song!=null){
             if (info1 == null) {
@@ -83,7 +92,10 @@ public class SongBar extends JPanel {
         }else {
             songName.setText("Nothing");
         }
-        songName.setBackground(Colors.getDown());
+        if (isRight)
+            songName.setBackground(Colors.getRight());
+        else
+            songName.setBackground(Colors.getDown());
         songName.setForeground(Colors.getText1());
         songName.setPreferredSize(new Dimension(100, 43));
         songName.setFont(new Font("B Nahar", Font.BOLD, 15));
@@ -96,7 +108,10 @@ public class SongBar extends JPanel {
             albumName = info1.getAlbum();
         }
         JLabel albumNameLabel = new JLabel(albumName);
-        albumNameLabel.setBackground(Colors.getDown());
+        if (isRight)
+            albumNameLabel.setBackground(Colors.getRight());
+        else
+            albumNameLabel.setBackground(Colors.getDown());
         albumNameLabel.setForeground(Colors.getText1());
         albumNameLabel.setFont(new Font("B Nahar", Font.PLAIN, 13));
         albumNameLabel.setPreferredSize(new Dimension(100, 42));
@@ -110,43 +125,48 @@ public class SongBar extends JPanel {
             else
                 artistName.setText(info1.getAlbum());
         }
-        artistName.setBackground(Colors.getDown());
+        if (isRight)
+            artistName.setBackground(Colors.getRight());
+        else
+            artistName.setBackground(Colors.getDown());
         artistName.setForeground(Colors.getText1());
         artistName.setFont(new Font("B Nahar", Font.PLAIN, 13));
         artistName.setPreferredSize(new Dimension(100, 42));
         artistSong.add(artistName);
         //heart----------------------------------------------------------------
-        heart.setBackground(Colors.getDown());
-        heart.setPreferredSize(new Dimension(20, 0));
-        JLabel heartLabel;
-        if (MainWindow.player != null) {
-            if (MainWindow.left.gPlayLists.playLists.get(0).contain(Libraries.getFilesVIAid().get(Center.getIndex()))) {
-                heartLabel = new JLabel("♥");
-            } else {
+        if (isRight==false){
+            heart.setBackground(Colors.getDown());
+            heart.setPreferredSize(new Dimension(20, 0));
+            JLabel heartLabel;
+            if (MainWindow.player != null) {
+                if (MainWindow.left.gPlayLists.playLists.get(0).contain(Libraries.getFilesVIAid().get(Center.getIndex()))) {
+                    heartLabel = new JLabel("♥");
+                } else {
+                    heartLabel = new JLabel("\uD83D\uDC94");
+                }
+            }else {
                 heartLabel = new JLabel("\uD83D\uDC94");
             }
-        }else {
-            heartLabel = new JLabel("\uD83D\uDC94");
-        }
-        heartLabel.setBackground(Colors.getDown());
-        heartLabel.setForeground(Colors.getText2());
-        heartLabel.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (heartLabel.getText().equals("\uD83D\uDC94")){
-                    heartLabel.setFont(new Font("B Nahar", Font.PLAIN, 18));
-                    heartLabel.setText("♥");
-                    MainWindow.left.gPlayLists.playLists.get(0).addSong(Libraries.getFilesVIAid().get(Center.getIndex()));
+            heartLabel.setBackground(Colors.getDown());
+            heartLabel.setForeground(Colors.getText2());
+            heartLabel.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    if (heartLabel.getText().equals("\uD83D\uDC94")){
+                        heartLabel.setFont(new Font("B Nahar", Font.PLAIN, 18));
+                        heartLabel.setText("♥");
+                        MainWindow.left.gPlayLists.playLists.get(0).addSong(Libraries.getFilesVIAid().get(Center.getIndex()));
 
-                }else if (heartLabel.getText().equals("♥")){
-                    heartLabel.setFont(new Font("B Nahar", Font.PLAIN, 15));
-                    heartLabel.setText("\uD83D\uDC94");
-                    MainWindow.left.gPlayLists.playLists.get(0).removeSong(Libraries.getFilesVIAid().get(Center.getIndex()));
+                    }else if (heartLabel.getText().equals("♥")){
+                        heartLabel.setFont(new Font("B Nahar", Font.PLAIN, 15));
+                        heartLabel.setText("\uD83D\uDC94");
+                        MainWindow.left.gPlayLists.playLists.get(0).removeSong(Libraries.getFilesVIAid().get(Center.getIndex()));
+                    }
                 }
-            }
 
-        });
-        heart.add(heartLabel);
+            });
+            heart.add(heartLabel);
+        }
         //add------------------------------------------------------------------
         this.add(imagePlace);
         this.add(artistSong);

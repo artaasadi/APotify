@@ -24,7 +24,7 @@ public class Right extends JPanel {
         userName.setForeground(Colors.getText2());
         this.add(userName);
         //SongBarShowingFriendsCurrentMusicPlaying-------------------------
-        songBar=new SongBar(null);
+        songBar=new SongBar(null,true);
         songBar.setMaximumSize(new Dimension(180,90));
         this.add(songBar);
         //sharedListShowingFriendsSharedList-------------------------------
