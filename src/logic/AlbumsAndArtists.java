@@ -15,6 +15,13 @@ public class AlbumsAndArtists {
     private static HashMap<String, APlayLists> albums = new HashMap<>();
     private static HashMap<String, APlayLists> artists = new HashMap<>();
 
+    /**
+     * makes the Albums playList
+     *
+     * @throws InvalidDataException
+     * @throws IOException
+     * @throws UnsupportedTagException
+     */
     public static void makeAlbum() throws InvalidDataException, IOException, UnsupportedTagException {
         for (File file : MainWindow.left.libraries.getFiles()) {
             Mp3File info = new Mp3File(file);
@@ -32,12 +39,18 @@ public class AlbumsAndArtists {
                         }
                     }
                     albums.put(tag.getAlbum(), playLists);
-                    System.out.println(tag.getAlbum() + ":" + playLists.getFiles().size());
                 }
             }
         }
     }
 
+    /**
+     * makes the Artists playLists
+     *
+     * @throws InvalidDataException
+     * @throws IOException
+     * @throws UnsupportedTagException
+     */
     public static void makeArtist() throws InvalidDataException, IOException, UnsupportedTagException {
         for (File file : MainWindow.left.libraries.getFiles()) {
             Mp3File info = new Mp3File(file);
@@ -55,7 +68,6 @@ public class AlbumsAndArtists {
                         }
                     }
                     artists.put(tag.getArtist(), playLists);
-                    System.out.println(tag.getArtist() + ":" + playLists.getFiles().size());
                 }
             }
         }

@@ -49,7 +49,7 @@ public class Center extends JPanel {
     public Center(int p) throws InvalidDataException, IOException, UnsupportedTagException {
         wallpaper = Colors.getWallpaper();
         JPanel mainP = new JPanel();
-        mainP.setBackground(new Color(0, 0, 0, 0));
+        mainP.setBackground(new Color(0,0,0,0));
         mainP.setLayout(new BoxLayout(mainP, BoxLayout.Y_AXIS));
         this.setLayout(new BorderLayout());
         for (i = 0; i < Libraries.getFiles().size(); i++) {
@@ -93,7 +93,7 @@ public class Center extends JPanel {
     public Center(APlayLists aPlayLists) throws InvalidDataException, IOException, UnsupportedTagException {
         wallpaper = Colors.getWallpaper();
         JPanel mainP = new JPanel();
-        mainP.setBackground(new Color(0, 0, 0, 0));
+        mainP.setBackground(new Color(0,0,0,0));
         mainP.setLayout(new BoxLayout(mainP, BoxLayout.Y_AXIS));
         this.setLayout(new BorderLayout());
         for (i = 0; i < aPlayLists.getFiles().size(); i++) {
@@ -142,11 +142,13 @@ public class Center extends JPanel {
     public Center() {
         System.out.println("run");
         wallpaper = Colors.getWallpaper();
+        setWallpaper(wallpaper);
         Label libraryLabel = new Label("__________________LIBRARY__________________");
         libraryLabel.setBackground(Colors.getLeft());
         libraryLabel.setForeground(Colors.getText2());
         JPanel mainP = new JPanel();
-        mainP.setBackground(new Color(0, 0, 0, 0));
+        this.setLayout(new BorderLayout());
+        mainP.setBackground(new Color(20, 20, 20,100));
         mainP.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         c.gridy = 0;
@@ -203,7 +205,7 @@ public class Center extends JPanel {
         scroll.setBorder(BorderFactory.createEmptyBorder());
         scroll.getVerticalScrollBar().setBackground(Colors.getDown());
         scroll.getVerticalScrollBar().setForeground(Colors.getLeft());
-        this.add(mainP);
+//        this.add(mainP);
         this.add(scroll);
     }
 
@@ -218,7 +220,8 @@ public class Center extends JPanel {
         libraryLabel.setBackground(Colors.getLeft());
         libraryLabel.setForeground(Colors.getText2());
         JPanel mainP = new JPanel();
-        mainP.setBackground(new Color(0, 0, 0, 0));
+        this.setLayout(new BorderLayout());
+        mainP.setBackground(new Color(0,0,0,0));
         mainP.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         c.gridy = 0;
@@ -250,10 +253,16 @@ public class Center extends JPanel {
         c.weighty = 0.5;
         JPanel purple = makePanel2("purple", "\uD83D\uDD36", new Color(140, 100, 140));
         mainP.add(purple, c);
+        c.gridy=3;
+        c.gridx=0;
+        c.weightx = 0.5;
+        c.weighty = 0.5;
+        JPanel blue = makePanel2("blue", "\uD83D\uDD36", new Color(130, 180, 210));
+        mainP.add(blue, c);
         Label playlistLabel = new Label("__________________THEME__________________");
         playlistLabel.setForeground(Colors.getText2());
         playlistLabel.setBackground(Colors.getLeft());
-        c.gridy = 3;
+        c.gridy = 4;
         c.gridx = 0;
         c.gridwidth = 2;
         c.weightx = 1;
@@ -261,12 +270,12 @@ public class Center extends JPanel {
         mainP.add(playlistLabel, c);
         c.gridwidth = 1;
         c.gridx = 0;
-        c.gridy = 4;
+        c.gridy = 5;
         c.weightx = 0.5;
         c.weighty = 0.5;
         mainP.add(makePanel2("dark", "\uD83D\uDC64", new Color(40, 40, 40)), c);
         c.gridx = 1;
-        c.gridy = 4;
+        c.gridy = 5;
         c.weightx = 0.5;
         c.weighty = 0.5;
         mainP.add(makePanel2("light", "\uD83D\uDC64", new Color(196, 205, 207)), c);
@@ -287,13 +296,21 @@ public class Center extends JPanel {
                 }
             }
         });
-        c.gridy = 5;
+        c.gridy = 6;
         c.gridx = 0;
         c.gridwidth = 2;
         c.weightx = 1;
         c.weighty = 1;
         mainP.add(setButton, c);
-        this.add(mainP);
+        ManualScrollBar msb = new ManualScrollBar();
+        scroll = (JScrollPane) msb.makeUI(mainP);
+        scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scroll.setBorder(BorderFactory.createEmptyBorder());
+        scroll.getVerticalScrollBar().setBackground(Colors.getDown());
+        scroll.getVerticalScrollBar().setForeground(Colors.getLeft());
+//        this.add(mainP);
+        this.add(scroll);
     }
 
     /**
@@ -347,6 +364,8 @@ public class Center extends JPanel {
         JPanel mainP = new JPanel();
         mainP.setBackground(new Color(0, 0, 0, 0));
         mainP.setLayout(new GridLayout(5, 2));
+//        mainP.setLayout(new BoxLayout(mainP, BoxLayout.Y_AXIS));
+        this.setLayout(new BorderLayout());
         //Album mode-----------------------------------------------------------
         if (s.equals("Albums")) {
             for (APlayLists album : AlbumsAndArtists.getAlbums().values()) {
@@ -399,7 +418,6 @@ public class Center extends JPanel {
         scroll.getVerticalScrollBar().setForeground(Colors.getLeft());
 //            this.add(mainP);
         this.add(scroll);
-        System.out.println(AlbumsAndArtists.getAlbums().size());
     }
 
     public static PauseablePlayer getPlayer() {
@@ -510,6 +528,7 @@ public class Center extends JPanel {
         Border border = BorderFactory.createLineBorder(Colors.getLeft());
         panel.setBorder(border);
         panel.setPreferredSize(new Dimension(300, 200));
+        panel.setMaximumSize(new Dimension(300,200));
         panel.setLayout(new GridLayout(2, 1));
         //name-----------------------------------------------------------
         JLabel name = new JLabel(s);
@@ -576,7 +595,7 @@ public class Center extends JPanel {
         wallpaper = image;
     }
 
-    public String getNameByIndex(int index){
+    public String getNameByIndex(int index) {
         return indexHashmap.get(index);
     }
 }
