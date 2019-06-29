@@ -13,7 +13,7 @@ public class HomeAndSetting extends JPanel {
     public HomeAndSetting() {
         this.setBackground(Colors.getLeft());
         this.setPreferredSize(new Dimension(0, 120));
-        //List
+        //List-------------------------------------------------------------
         String s[] = {"\uD83C\uDFE0 Home", "⚙️ Settings"};
         JList list = new JList(s);
         list.setFont(new Font("A Nahar", Font.ITALIC & Font.BOLD, 20));

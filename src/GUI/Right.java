@@ -9,6 +9,6 @@ public class Right extends JPanel {
     public Right() {
         this.setBackground(Colors.getRight());
         this.setPreferredSize(new Dimension(200, 0));
-
+        //Label
     }
 }

@@ -50,7 +50,6 @@ public class Libraries extends JPanel {
         this.add(add);
         add.addActionListener(handler);
         //List--------------------------------------------------------------
-//        String s[] = {"Songs", "Favorite Songs", "AlbumsAndArtists", "Artists"};
         String s[] = {"\uD83C\uDFB5 Songs", "\uD83D\uDCBF Albums", "\uD83C\uDFA4 Artists"};
         JList list = new JList(s);
         list.setFont(new Font("A Nahar", Font.ITALIC, 17));
