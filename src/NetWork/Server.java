@@ -1,30 +1,56 @@
 package NetWork;
-
+import java.io.DataInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.io.*;
-import java.util.ArrayList;
 
-public class Server {
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
-        ServerSocket ss = new ServerSocket(9488);
-        System.out.println("ServerSocket awaiting connections...");
-        Socket socket = ss.accept(); // blocking call, this will wait until a connection is attempted on this port.
-        System.out.println("Connection from " + socket + "!");
-        InputStream inputStream = socket.getInputStream();
-        ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
-        ArrayList<File> receivedFiles = (ArrayList<File>) objectInputStream.readObject();
-        System.out.println("Received [" + receivedFiles.size() + "] files from: " + socket);
+public class Server extends Thread {
 
-        System.out.println("All files");
-        for (File f : receivedFiles) {
-            System.out.println(f.getName());
+    private ServerSocket ss;
+
+    public Server(int port) {
+        try {
+            ss = new ServerSocket(port);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        System.out.println("Closing sockets.");
-        ss.close();
-        socket.close();
     }
+
+    public void run() {
+        while (true) {
+            try {
+                Socket clientSock = ss.accept();
+                saveFile(clientSock);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void saveFile(Socket clientSock) throws IOException {
+        DataInputStream dis = new DataInputStream(clientSock.getInputStream());
+        FileOutputStream fos = new FileOutputStream("test.mp3");
+        byte[] buffer = new byte[4841344];
+
+        int filesize = 4841344; // Send file size in separate msg
+        int read = 0;
+        int totalRead = 0;
+        int remaining = filesize;
+        while((read = dis.read(buffer, 0, Math.min(buffer.length, remaining))) > 0) {
+            totalRead += read;
+            remaining -= read;
+            System.out.println("read " + totalRead + " bytes.");
+            fos.write(buffer, 0, read);
+        }
+
+        fos.close();
+        dis.close();
+    }
+
+    public static void main(String[] args) {
+        Server fs = new Server(1988);
+        fs.start();
+    }
+
 }
