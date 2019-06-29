@@ -8,18 +8,34 @@ public class FileSaver {
     ArrayList<String> path;
     static int i = 0;
 
+    /**
+     * makse new song
+     *
+     * @param filename name of the file
+     */
     public FileSaver(String filename) {
         myfile = new File(filename + ".bin");
         path = new ArrayList<>();
 
     }
 
+    /**
+     * add musics to file
+     *
+     * @param path path of the song
+     * @throws IOException
+     */
     public void addMusic(String path) throws IOException {
         this.path.add(path);
         write();
 
     }
 
+    /**
+     * making a file that saves file directions
+     *
+     * @throws IOException
+     */
     public void write() throws IOException {
         FileOutputStream fileOutputStream = new FileOutputStream(String.valueOf(myfile));
         ObjectOutputStream o = new ObjectOutputStream(fileOutputStream);

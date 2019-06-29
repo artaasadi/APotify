@@ -1,13 +1,11 @@
 package NetWork;
 
-import java.io.DataInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server extends Thread {
-
+    private static String friendName=null;
     private ServerSocket ss;
 
     public Server(int port) {
@@ -30,11 +28,15 @@ public class Server extends Thread {
     }
 
     private void saveFile(Socket clientSock) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(clientSock.getInputStream()));
+        String in = br.readLine();
+        int bytes = Integer.parseInt(br.readLine());
+        friendName = br.readLine();
         DataInputStream dis = new DataInputStream(clientSock.getInputStream());
-        FileOutputStream fos = new FileOutputStream("test.mp3");
-        byte[] buffer = new byte[4841344];
+        FileOutputStream fos = new FileOutputStream(in.concat(".mp3"));
+        byte[] buffer = new byte[bytes];
 
-        int filesize = 4841344; // Send file size in separate msg
+        int filesize = bytes; // Send file size in separate msg
         int read = 0;
         int totalRead = 0;
         int remaining = filesize;
@@ -54,4 +56,7 @@ public class Server extends Thread {
         fs.start();
     }
 
+    public static String getFriendName() {
+        return friendName;
+    }
 }

@@ -350,4 +350,13 @@ public class MainWindow {
     public static String getUserName() {
         return userName;
     }
+
+    public static void rightRefresh() {
+        right.revalidate();
+        right.repaint();
+        mainFrame.add(right, BorderLayout.WEST);
+        mainFrame.repaint();
+        mainFrame.revalidate();
+        mainFrame.setVisible(true);
+    }
 }

@@ -3,6 +3,7 @@ package GUI;
 import GUI.bottom.SongBar;
 import GUI.theme.Colors;
 import GUI.theme.ManualScrollBar;
+import NetWork.Server;
 import com.mpatric.mp3agic.InvalidDataException;
 import com.mpatric.mp3agic.UnsupportedTagException;
 
@@ -18,9 +19,17 @@ public class Right extends JPanel {
     public Right() throws InvalidDataException, IOException, UnsupportedTagException {
         this.setBackground(Colors.getRight());
         this.setPreferredSize(new Dimension(200, 0));
-        //UserNameLabel----------------------------------------------------
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        userName = new JLabel("aava");
+        //ServerButton-----------------------------------------------------
+        JButton serverButton=new JButton("Server");
+
+//        JButton clientButton=
+        //UserNameLabel----------------------------------------------------
+        if (Server.getFriendName()!=null){
+            userName = new JLabel(Server.getFriendName());
+        }else {
+            userName=new JLabel("No Connection");
+        }
         userName.setBackground(Colors.getRight());
         userName.setForeground(Colors.getText2());
         this.add(userName);
