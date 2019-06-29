@@ -48,7 +48,13 @@ public class Center extends JPanel {
      */
     public Center(int p) throws InvalidDataException, IOException, UnsupportedTagException {
         wallpaper = Colors.getWallpaper();
-        JPanel mainP = new JPanel();
+        JPanel mainP = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(wallpaper, 0, 0, this); // see javadoc for more info on the parameters
+            }
+        };
         mainP.setBackground(new Color(0,0,0,0));
         mainP.setLayout(new BoxLayout(mainP, BoxLayout.Y_AXIS));
         this.setLayout(new BorderLayout());
@@ -92,7 +98,13 @@ public class Center extends JPanel {
      */
     public Center(APlayLists aPlayLists) throws InvalidDataException, IOException, UnsupportedTagException {
         wallpaper = Colors.getWallpaper();
-        JPanel mainP = new JPanel();
+        JPanel mainP = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(wallpaper, 0, 0, this); // see javadoc for more info on the parameters
+            }
+        };
         mainP.setBackground(new Color(0,0,0,0));
         mainP.setLayout(new BoxLayout(mainP, BoxLayout.Y_AXIS));
         this.setLayout(new BorderLayout());
@@ -140,13 +152,16 @@ public class Center extends JPanel {
      * structure for home
      */
     public Center() {
-        System.out.println("run");
+        //main panel setting----------------------------------------------------------------
         wallpaper = Colors.getWallpaper();
         setWallpaper(wallpaper);
-        Label libraryLabel = new Label("__________________LIBRARY__________________");
-        libraryLabel.setBackground(Colors.getLeft());
-        libraryLabel.setForeground(Colors.getText2());
-        JPanel mainP = new JPanel();
+        JPanel mainP = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(wallpaper, 0, 0, this); // see javadoc for more info on the parameters
+            }
+        };
         this.setLayout(new BorderLayout());
         mainP.setBackground(new Color(20, 20, 20,100));
         mainP.setLayout(new GridBagLayout());
@@ -154,25 +169,27 @@ public class Center extends JPanel {
         c.gridy = 0;
         c.gridx = 0;
         c.gridwidth = 2;
-//        c.weightx=0.5;
-//        c.weighty=0.5;
+        //Label----------------------------------------------------------------------------
+        Label libraryLabel = new Label("__________________LIBRARY__________________");
+        libraryLabel.setBackground(Colors.getLeft());
+        libraryLabel.setForeground(Colors.getText2());
         mainP.add(libraryLabel, c);
         c.gridwidth = 1;
         c.gridx = 0;
         c.gridy = 1;
         c.weightx = 0.5;
         c.weighty = 0.5;
-        mainP.add(makePanel2("AlbumsAndArtists", "\uD83D\uDCBF", Colors.getText2()), c);
+        mainP.add(makePanel2("Songs", "\uD83C\uDFB5", Colors.getText2()), c);
         c.gridx = 1;
         c.gridy = 1;
         c.weightx = 0.5;
         c.weighty = 0.5;
-        mainP.add(makePanel2("Songs", "\uD83C\uDFB5", Colors.getText2()), c);
+        mainP.add(makePanel2("Albums", "\uD83D\uDCBF", Colors.getText2()), c);
         c.gridx = 0;
         c.gridy = 2;
         c.weightx = 0.5;
         c.weighty = 0.5;
-        mainP.add(makePanel2("Favorite", "❤", Colors.getText2()), c);
+        mainP.add(makePanel2("Artists", "❤", Colors.getText2()), c);
         Label playlistLabel = new Label("__________________THEME__________________");
         playlistLabel.setForeground(Colors.getText2());
         playlistLabel.setBackground(Colors.getLeft());
@@ -219,7 +236,13 @@ public class Center extends JPanel {
         Label libraryLabel = new Label("__________________Colors__________________");
         libraryLabel.setBackground(Colors.getLeft());
         libraryLabel.setForeground(Colors.getText2());
-        JPanel mainP = new JPanel();
+        JPanel mainP = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(wallpaper, 0, 0, this); // see javadoc for more info on the parameters
+            }
+        };
         this.setLayout(new BorderLayout());
         mainP.setBackground(new Color(0,0,0,0));
         mainP.setLayout(new GridBagLayout());
@@ -320,7 +343,13 @@ public class Center extends JPanel {
      */
     public Center(double d) throws InvalidDataException, IOException, UnsupportedTagException {
         wallpaper = Colors.getWallpaper();
-        JPanel mainP = new JPanel();
+        JPanel mainP = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(wallpaper, 0, 0, this); // see javadoc for more info on the parameters
+            }
+        };
         mainP.setBackground(new Color(0, 0, 0, 0));
         mainP.setLayout(new BoxLayout(mainP, BoxLayout.Y_AXIS));
         this.setLayout(new BorderLayout());
@@ -361,7 +390,13 @@ public class Center extends JPanel {
      */
     public Center(String s) {
         //making panel---------------------------------------------------------
-        JPanel mainP = new JPanel();
+        JPanel mainP = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(wallpaper, 0, 0, this); // see javadoc for more info on the parameters
+            }
+        };
         mainP.setBackground(new Color(0, 0, 0, 0));
         mainP.setLayout(new GridLayout(5, 2));
 //        mainP.setLayout(new BoxLayout(mainP, BoxLayout.Y_AXIS));
@@ -547,8 +582,31 @@ public class Center extends JPanel {
             public void mouseClicked(MouseEvent e) {
                 if (s.equals("gold") || s.equals("rose gold") || s.equals("green") || s.equals("blue") || s.equals("purple")) {
                     colorSet = s;
-                } else {
+                } else if (s.equals("dark") || s.equals("light")){
                     themeSet = s;
+                } else if (s.equals("Songs")){
+                    try {
+                        MainWindow.changeCenter(new Center(0));
+                    } catch (InvalidDataException e1) {
+                        e1.printStackTrace();
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    } catch (UnsupportedTagException e1) {
+                        e1.printStackTrace();
+                    }
+                } else if (s.equals("Albums") || s.equals("Artists")){
+                    try {
+                        AlbumsAndArtists.makeArtist();
+                        AlbumsAndArtists.makeAlbum();
+                    } catch (InvalidDataException e1) {
+                        e1.printStackTrace();
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    } catch (UnsupportedTagException e1) {
+                        e1.printStackTrace();
+                    }
+
+                    MainWindow.changeCenter(new Center(s));
                 }
             }
         });

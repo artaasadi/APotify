@@ -17,6 +17,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
@@ -29,6 +30,7 @@ public class MainWindow {
     public static Left left;
     private static Right right;
     public static PauseablePlayer player;
+    private static BufferedImage wallpaper;
     public static Top topPanel;
     private static JFrame playListAddFrame;
 
@@ -56,6 +58,7 @@ public class MainWindow {
         right = new Right();
         mainFrame.add(right, BorderLayout.EAST);
         //Center------------------------------------------------------------
+        wallpaper = Colors.getWallpaper();
         if (center == null)
             center = new Center();
         mainFrame.add(center, BorderLayout.CENTER);
