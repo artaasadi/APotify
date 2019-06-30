@@ -25,7 +25,10 @@ public class Client {
 
     public void sendFile(String file) throws IOException {
         PrintWriter pw = new PrintWriter(new OutputStreamWriter(s.getOutputStream()));
-        pw.println(song.getId3v1Tag().getTitle());
+        if(song.hasId3v1Tag())
+            pw.println(song.getId3v1Tag().getTitle());
+        else
+            pw.println("");
         pw.flush();
         pw.println(song.getLength());
         pw.flush();
